@@ -118,19 +118,22 @@ scene.remove(cube);
 const model =
 gltf.scene;
 
-/* SCALE */
 model.scale.set(
-0.01,
-0.01,
-0.01
+0.1,
+0.1,
+0.1
 );
 
-/* POSITION */
 model.position.set(
 0,
--1,
+0,
 0
 );
+
+model.rotation.y =
+Math.PI;
+
+camera.position.z = 15;
 
 scene.add(model);
 
