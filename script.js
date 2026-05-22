@@ -101,23 +101,26 @@ function(gltf){
   let model =
   gltf.scene;
 
-  /* SCALE */
   model.scale.set(
-    1,
-    1,
-    1
+    0.01,
+    0.01,
+    0.01
   );
 
-  /* POSITION */
   model.position.set(
     0,
     -1,
     0
   );
 
+  model.rotation.y =
+  Math.PI;
+
   scene.add(model);
 
-  console.log("MODEL BERHASIL");
+  console.log(
+    "MODEL BERHASIL"
+  );
 
 },
 
@@ -125,10 +128,7 @@ undefined,
 
 function(error){
 
-  console.error(
-    "MODEL ERROR:",
-    error
-  );
+  console.error(error);
 
 }
 
