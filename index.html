@@ -1,149 +1,51 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Nabila Busana</title>
 
-  <!-- Hubungkan CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- Navbar -->
+  <!-- NAVBAR -->
   <nav>
+
     <h1>Nabila Busana</h1>
 
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Produk</a></li>
-      <li><a href="#">Kontak</a></li>
-    </ul>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h2>Fashion Modern 2026</h2>
-    <p>Tampil Stylish Setiap Hari</p>
+  <!-- VIEWER -->
+  <section class="viewer-section">
 
-    <button>Belanja Sekarang</button>
-  </section>
-
-  <!-- Produk -->
-  <section class="produk">
-
-    <div class="card">
-
-  <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop">
-
-  <h3>Oversize T-Shirt</h3>
-
-  <p>Rp 129.000</p>
-
-  <!-- SIZE -->
-  <select class="size">
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-  </select>
-
-  <!-- QUANTITY -->
-  <input
-  type="number"
-  class="qty"
-  value="1"
-  min="1"
-  >
-
-  <!-- BUTTON -->
-  <button onclick="checkout(this)">
-    Checkout WhatsApp
-  </button>
-
-</div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop">
-
-      <h3>Casual Hoodie</h3>
-
-      <p>Rp 249.000</p>
-
-      <button>Beli</button>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop">
-
-      <h3>Dress Wanita</h3>
-
-      <p>Rp 189.000</p>
-
-      <button>Beli</button>
-    </div>
     <div id="viewer"></div>
 
-<div class="products">
+    <div class="viewer-text">
 
-  <button onclick="changeShirt('black')">
-    Hoodie Hitam
-  </button>
+      <h2>3D Fashion Viewer</h2>
 
-  <button onclick="changeShirt('white')">
-    Hoodie Putih
-  </button>
+      <p>
+        Putar mannequin dan lihat outfit
+      </p>
 
-</div>
+    </div>
 
   </section>
 
-<script>
+  <!-- THREE JS -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 
-function checkout(button){
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
 
-  let card =
-  button.parentElement;
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
 
-  let product =
-  card.querySelector("h3").innerText;
-
-  let price =
-  card.querySelector("p").innerText;
-
-  let size =
-  card.querySelector(".size").value;
-
-  let qty =
-  card.querySelector(".qty").value;
-
-  let message =
-`Halo Nabila Busana,
-
-Saya mau pesan:
-
-Produk: ${product}
-Harga: ${price}
-Size: ${size}
-Jumlah: ${qty}`;
-
-  let url =
-"https://wa.me/6282123486069?text="
-+ encodeURIComponent(message);
-
-  window.open(url);
-
-}
-
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
-
-<script src="script.js"></script>
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
 
 </body>
+
 </html>
