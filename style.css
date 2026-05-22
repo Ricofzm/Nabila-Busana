@@ -125,3 +125,19 @@ nav a{
 
   font-weight:bold;
 }
+.card a{
+  text-decoration:none;
+}
+
+.card button{
+  background:#25D366;
+  color:white;
+
+  transition:0.3s;
+}
+
+.card button:hover{
+  background:#1ebe5d;
+
+  transform:scale(1.03);
+}
