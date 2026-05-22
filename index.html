@@ -107,6 +107,7 @@ scene.add(cube);
 /* LOADER */
 const loader =
 new THREE.GLTFLoader();
+let bodyMaterial;
 
 loader.load(
 
@@ -140,6 +141,17 @@ model.rotation.y =
 camera.position.z = 5;
 
 scene.add(model);
+
+model.traverse((child)=>{
+
+if(child.isMesh){
+
+bodyMaterial =
+child.material;
+
+}
+
+});
 
 },
 
