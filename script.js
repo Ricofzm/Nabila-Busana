@@ -1,6 +1,9 @@
 let scene =
 new THREE.Scene();
 
+scene.background =
+new THREE.Color(0x111111);
+
 let camera =
 new THREE.PerspectiveCamera(
 75,
@@ -25,69 +28,38 @@ document
 
 camera.position.z = 3;
 
-let controls =
-new THREE.OrbitControls(
-camera,
-renderer.domElement
-);
-
+/* LIGHT */
 let light =
 new THREE.HemisphereLight(
 0xffffff,
 0x444444,
-2
+5
 );
 
 scene.add(light);
 
-let bodyMesh;
+/* TEST CUBE */
+let geometry =
+new THREE.BoxGeometry();
 
-let loader =
-new THREE.GLTFLoader();
+let material =
+new THREE.MeshStandardMaterial({
+color:"white"
+});
 
-loader.load(
-'models/body.glb',
-
-function(gltf){
-
-  bodyMesh =
-  gltf.scene;
-
-  scene.add(bodyMesh);
-
-}
-
+let cube =
+new THREE.Mesh(
+geometry,
+material
 );
 
-function changeShirt(color){
-
-  if(!bodyMesh) return;
-
-  bodyMesh.traverse((child)=>{
-
-    if(child.isMesh){
-
-      if(color == "black"){
-
-        child.material.color.set("#000000");
-
-      }
-
-      if(color == "white"){
-
-        child.material.color.set("#ffffff");
-
-      }
-
-    }
-
-  });
-
-}
+scene.add(cube);
 
 function animate(){
 
   requestAnimationFrame(animate);
+
+  cube.rotation.y += 0.01;
 
   renderer.render(scene,camera);
 
