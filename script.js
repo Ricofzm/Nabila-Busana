@@ -1,9 +1,11 @@
+/* SCENE */
 let scene =
 new THREE.Scene();
 
 scene.background =
 new THREE.Color(0x111111);
 
+/* CAMERA */
 let camera =
 new THREE.PerspectiveCamera(
 75,
@@ -12,6 +14,9 @@ window.innerWidth/window.innerHeight,
 1000
 );
 
+camera.position.set(0,1.5,3);
+
+/* RENDERER */
 let renderer =
 new THREE.WebGLRenderer({
 antialias:true
@@ -22,47 +27,146 @@ window.innerWidth,
 window.innerHeight
 );
 
+renderer.setPixelRatio(
+window.devicePixelRatio * 0.7
+);
+
 document
 .getElementById("viewer")
 .appendChild(renderer.domElement);
 
-camera.position.z = 3;
+/* CONTROLS */
+let controls =
+new THREE.OrbitControls(
+camera,
+renderer.domElement
+);
+
+controls.enableDamping = true;
 
 /* LIGHT */
-let light =
+let hemiLight =
 new THREE.HemisphereLight(
 0xffffff,
 0x444444,
-5
+3
 );
 
-scene.add(light);
+scene.add(hemiLight);
 
-/* TEST CUBE */
-let geometry =
-new THREE.BoxGeometry();
+let dirLight =
+new THREE.DirectionalLight(
+0xffffff,
+2
+);
 
-let material =
+dirLight.position.set(5,10,5);
+
+scene.add(dirLight);
+
+/* FLOOR */
+let floorGeometry =
+new THREE.CircleGeometry(5,64);
+
+let floorMaterial =
 new THREE.MeshStandardMaterial({
-color:"white"
+color:"#222"
 });
 
-let cube =
+let floor =
 new THREE.Mesh(
-geometry,
-material
+floorGeometry,
+floorMaterial
 );
 
-scene.add(cube);
+floor.rotation.x =
+-Math.PI/2;
 
+floor.position.y =
+-1;
+
+scene.add(floor);
+
+/* LOADER */
+let loader =
+new THREE.GLTFLoader();
+
+/* LOAD MODEL */
+loader.load(
+
+'models/body.glb',
+
+function(gltf){
+
+  let model =
+  gltf.scene;
+
+  /* SCALE */
+  model.scale.set(
+    1,
+    1,
+    1
+  );
+
+  /* POSITION */
+  model.position.set(
+    0,
+    -1,
+    0
+  );
+
+  scene.add(model);
+
+  console.log("MODEL BERHASIL");
+
+},
+
+undefined,
+
+function(error){
+
+  console.error(
+    "MODEL ERROR:",
+    error
+  );
+
+}
+
+);
+
+/* ANIMATION */
 function animate(){
 
-  requestAnimationFrame(animate);
+  requestAnimationFrame(
+    animate
+  );
 
-  cube.rotation.y += 0.01;
+  controls.update();
 
-  renderer.render(scene,camera);
+  renderer.render(
+    scene,
+    camera
+  );
 
 }
 
 animate();
+
+/* RESPONSIVE */
+window.addEventListener(
+'resize',
+
+function(){
+
+  camera.aspect =
+  window.innerWidth /
+  window.innerHeight;
+
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+  );
+
+});
