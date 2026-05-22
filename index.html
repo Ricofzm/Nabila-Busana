@@ -184,6 +184,22 @@ camera
 
 animate();
 
+const textureLoader =
+new THREE.TextureLoader();
+
+function changeClothes(texturePath){
+
+const texture =
+textureLoader.load(texturePath);
+
+bodyMaterial.map =
+texture;
+
+bodyMaterial.needsUpdate =
+true;
+
+}
+
 </script>
 
 </body>
