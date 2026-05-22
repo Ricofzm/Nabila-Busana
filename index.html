@@ -33,21 +33,35 @@
   <section class="produk">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop">
 
-      <h3>Oversize T-Shirt</h3>
+  <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop">
 
-      <p>Rp 129.000</p>
+  <h3>Oversize T-Shirt</h3>
 
-      <a
-href="https://wa.me/6282123486069?text=Halo%20Nabila%20Busana,%20saya%20mau%20pesan%20Oversize%20T-Shirt"
-target="_blank"
->
+  <p>Rp 129.000</p>
 
-<button>Beli Sekarang</button>
+  <!-- SIZE -->
+  <select class="size">
+    <option>S</option>
+    <option>M</option>
+    <option>L</option>
+    <option>XL</option>
+  </select>
 
-</a>
-    </div>
+  <!-- QUANTITY -->
+  <input
+  type="number"
+  class="qty"
+  value="1"
+  min="1"
+  >
+
+  <!-- BUTTON -->
+  <button onclick="checkout(this)">
+    Checkout WhatsApp
+  </button>
+
+</div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop">
@@ -71,5 +85,43 @@ target="_blank"
 
   </section>
 
+<script>
+
+function checkout(button){
+
+  let card =
+  button.parentElement;
+
+  let product =
+  card.querySelector("h3").innerText;
+
+  let price =
+  card.querySelector("p").innerText;
+
+  let size =
+  card.querySelector(".size").value;
+
+  let qty =
+  card.querySelector(".qty").value;
+
+  let message =
+`Halo Nabila Busana,
+
+Saya mau pesan:
+
+Produk: ${product}
+Harga: ${price}
+Size: ${size}
+Jumlah: ${qty}`;
+
+  let url =
+"https://wa.me/6282123486069?text="
++ encodeURIComponent(message);
+
+  window.open(url);
+
+}
+
+</script>
 </body>
 </html>
