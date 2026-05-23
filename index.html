@@ -9,15 +9,14 @@
 <body>
 
 <div class="container">
-  <!-- Sidebar -->
   <aside class="sidebar">
     <button class="back">← BACK TO SHOP</button>
     
     <h3>SELECT ITEM</h3>
     <div class="tabs">
-      <button class="tab active" onclick="showTab('top')">TOP</button>
-      <button class="tab" onclick="showTab('bottom')">BOTTOM</button>
-      <button class="tab" onclick="showTab('shoes')">SHOES</button>
+      <button class="tab active" onclick="showTab('top', this)">TOP</button>
+      <button class="tab" onclick="showTab('bottom', this)">BOTTOM</button>
+      <button class="tab" onclick="showTab('shoes', this)">SHOES</button>
     </div>
 
     <div id="top" class="item-grid">
@@ -26,8 +25,8 @@
         <p>Oversize T-Shirt</p>
         <p>IDR 199.000</p>
       </div>
-      <div class="item" onclick="setLayer('top-layer', 'assets/top-2.png', this)">
-        <img src="assets/top-2.png">
+      <div class="item" onclick="setLayer('top-layer', 'assets/top-2.PNG', this)">
+        <img src="assets/top-2.PNG">
         <p>Basic T-Shirt</p>
         <p>IDR 149.000</p>
       </div>
@@ -52,13 +51,17 @@
     <button class="add-cart">ADD TO CART</button>
   </aside>
 
-  <!-- Fitting Room -->
   <main class="fitting-room">
     <h2>FITTING ROOM</h2>
     <p>See how it looks on our mannequin</p>
     
+    <div class="mannequin-toggle">
+      <button class="mode-btn active" onclick="switchMannequin('no-hijab', this)">No Hijab</button>
+      <button class="mode-btn" onclick="switchMannequin('hijab', this)">Hijab</button>
+    </div>
+
     <div class="mannequin-box">
-      <img src="assets/mennequin-hijab.PNG" class="base-mannequin">
+      <img id="base-mannequin" src="assets/mannequin-no-hijab.PNG" class="base-mannequin">
       <img id="shoes-layer" class="layer">
       <img id="bottom-layer" class="layer">
       <img id="top-layer" class="layer">
@@ -66,7 +69,6 @@
 
     <div class="controls">
       <button onclick="resetLook()">RESET</button>
-      <button onclick="saveLook()">SAVE LOOK</button>
     </div>
   </main>
 </div>
