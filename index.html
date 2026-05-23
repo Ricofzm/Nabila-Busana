@@ -36,7 +36,98 @@ VOGUEFIT
 
 <h2>SELECT ITEM</h2>
 
-<div class="product-grid">
+<div class="tabs">
+
+<div class="tab active"
+onclick="showCategory('tops',this)">
+TOP
+</div>
+
+<div class="tab"
+onclick="showCategory('pants',this)">
+PANTS
+</div>
+
+<div class="tab"
+onclick="showCategory('shoes',this)">
+SHOES
+</div>
+
+</div>
+
+<!-- TOPS -->
+
+<div class="product-grid category"
+id="tops">
+
+<div class="product-card"
+onclick="
+changeTop('assets/hoodie-black.PNG')
+">
+
+<img src="assets/hoodie-black.PNG">
+
+<div class="product-name">
+Black Hoodie
+</div>
+
+<div class="product-price">
+IDR 299.000
+</div>
+
+</div>
+
+</div>
+
+<!-- PANTS -->
+
+<div class="product-grid category"
+id="pants"
+style="display:none;">
+
+<div class="product-card"
+onclick="
+changePants('assets/pants-beige.PNG')
+">
+
+<img src="assets/pants-beige.PNG">
+
+<div class="product-name">
+Cargo Pants
+</div>
+
+<div class="product-price">
+IDR 259.000
+</div>
+
+</div>
+
+</div>
+
+<!-- SHOES -->
+
+<div class="product-grid category"
+id="shoes"
+style="display:none;">
+
+<div class="product-card"
+onclick="
+changeShoes('assets/shoes-white.PNG')
+">
+
+<img src="assets/shoes-white.PNG">
+
+<div class="product-name">
+Sneakers White
+</div>
+
+<div class="product-price">
+IDR 399.000
+</div>
+
+</div>
+
+</div>
 
 <!-- HOODIE -->
 
