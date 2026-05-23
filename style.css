@@ -7,8 +7,9 @@ font-family:Inter,sans-serif;
 
 body{
 background:#f3f3f3;
-overflow:hidden;
+overflow-x:hidden;
 color:#111;
+-webkit-tap-highlight-color:transparent;
 }
 
 /* NAVBAR */
