@@ -341,19 +341,19 @@ document.getElementById(
 "topLayer"
 ).src =
 
-"assets/hoodie-black.PNG";
+"assets/mennequin.PNG";
 
 document.getElementById(
 "pantsLayer"
 ).src =
 
-"assets/pants-beige.PNG";
+"assets/mennequin.PNG";
 
 document.getElementById(
 "shoesLayer"
 ).src =
 
-"assets/shoes-white.PNG";
+"assets/mennequin.PNG";
 
 /* RESET VIEW */
 
