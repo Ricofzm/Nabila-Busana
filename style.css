@@ -35,6 +35,8 @@ letter-spacing:4px;
 display:grid;
 grid-template-columns:320px 1fr 340px;
 height:calc(100vh - 80px);
+gap:20px;
+padding:20px;
 }
 
 /* SIDEBAR */
@@ -320,4 +322,123 @@ transition:.3s;
 .checkout-btn:hover{
 transform:translateY(-3px);
 background:#222;
+}
+
+/* ===================== */
+/* MOBILE RESPONSIVE */
+/* ===================== */
+
+@media(max-width:1000px){
+
+body{
+overflow:auto;
+}
+
+/* NAVBAR */
+
+.navbar{
+padding:0 20px;
+}
+
+.logo{
+font-size:22px;
+}
+
+/* MAIN */
+
+.main{
+grid-template-columns:1fr;
+height:auto;
+padding:15px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+border-radius:24px;
+border:none;
+}
+
+/* VIEWER */
+
+.viewer{
+min-height:700px;
+border-radius:24px;
+}
+
+/* MANNEQUIN */
+
+.mannequin-area{
+width:320px;
+height:580px;
+}
+
+/* BG */
+
+.viewer::before{
+width:500px;
+height:500px;
+}
+
+/* CONTROLS */
+
+.controls{
+left:15px;
+bottom:20px;
+flex-direction:row;
+}
+
+.control-btn{
+width:48px;
+height:48px;
+font-size:18px;
+}
+
+/* CART */
+
+.cart-panel{
+border:none;
+border-radius:24px;
+}
+
+/* PRODUCT GRID */
+
+.product-grid{
+grid-template-columns:1fr 1fr;
+}
+
+/* PRODUCT CARD */
+
+.product-card{
+padding:12px;
+}
+
+.product-card img{
+height:140px;
+object-fit:contain;
+}
+
+/* CART ITEM */
+
+.cart-item{
+align-items:center;
+}
+
+.cart-item img{
+width:70px;
+height:70px;
+}
+
+/* CHECKOUT */
+
+.checkout-btn{
+height:55px;
+}
+
+/* SUMMARY */
+
+.total{
+font-size:16px;
+}
+
 }
