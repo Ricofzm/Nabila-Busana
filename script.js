@@ -117,3 +117,29 @@ rotate = 0;
 updateTransform();
 
 }
+
+/* SAVE OUTFIT */
+
+function saveOutfit(){
+
+const model = document
+.querySelector(".viewer");
+
+html2canvas(model,{
+backgroundColor:null
+}).then(canvas=>{
+
+const link =
+document.createElement("a");
+
+link.download =
+"voguefit-outfit.png";
+
+link.href =
+canvas.toDataURL();
+
+link.click();
+
+});
+
+}
