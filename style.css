@@ -206,33 +206,6 @@ font-weight:700;
 
 }
 
-/* CONTROLS */
-
-.controls{
-position:absolute;
-left:30px;
-display:flex;
-flex-direction:column;
-gap:15px;
-z-index:10;
-}
-
-.control-btn{
-width:54px;
-height:54px;
-border:none;
-border-radius:50%;
-background:white;
-font-size:22px;
-cursor:pointer;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.control-btn:hover{
-transform:scale(1.08);
-}
-
 /* CART PANEL */
 
 .cart-panel{
