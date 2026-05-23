@@ -176,3 +176,29 @@ min-height:800px;
 }
 
 }
+
+/* TABS */
+
+.tabs{
+display:flex;
+gap:20px;
+margin-bottom:25px;
+}
+
+.tab{
+font-size:13px;
+font-weight:500;
+cursor:pointer;
+padding-bottom:8px;
+border-bottom:2px solid transparent;
+transition:.3s;
+}
+
+.tab:hover{
+opacity:.5;
+}
+
+.tab.active{
+border-color:black;
+font-weight:700;
+}
