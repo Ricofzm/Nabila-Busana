@@ -352,31 +352,18 @@ item.remove();
 
 function resetOutfit(){
 
-/* DEFAULT ITEM */
-
 document.getElementById(
 "topLayer"
-).src =
-
-"assets/mennequin.PNG";
+).src = "";
 
 document.getElementById(
 "pantsLayer"
-).src =
-
-"assets/mennequin.PNG";
+).src = "";
 
 document.getElementById(
 "shoesLayer"
-).src =
+).src = "";
 
-"assets/mennequin.PNG";
-
-/* RESET VIEW */
-
-scale = 1;
-rotate = 0;
-
-updateTransform();
+resetView();
 
 }
