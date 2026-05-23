@@ -1,0 +1,96 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#f3f3f3;
+font-family:Arial;
+}
+
+/* NAVBAR */
+
+.navbar{
+height:80px;
+background:white;
+display:flex;
+align-items:center;
+padding:0 40px;
+font-size:30px;
+font-weight:bold;
+border-bottom:1px solid #ddd;
+}
+
+/* MAIN */
+
+.main{
+display:grid;
+grid-template-columns:250px 1fr;
+height:calc(100vh - 80px);
+}
+
+/* SIDEBAR */
+
+.sidebar{
+background:white;
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:15px;
+border-right:1px solid #ddd;
+}
+
+.sidebar button{
+height:50px;
+border:none;
+background:black;
+color:white;
+border-radius:12px;
+cursor:pointer;
+}
+
+/* VIEWER */
+
+.viewer{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* MANNEQUIN */
+
+.mannequin-area{
+position:relative;
+width:400px;
+height:700px;
+}
+
+/* LAYER */
+
+.layer{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:contain;
+}
+
+/* ORDER */
+
+.body{
+z-index:1;
+}
+
+.pants{
+z-index:2;
+}
+
+.top{
+z-index:3;
+}
+
+.shoes{
+z-index:4;
+}
