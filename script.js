@@ -143,3 +143,58 @@ link.click();
 });
 
 }
+
+/* CART */
+
+let total = 0;
+
+function addToCart(
+name,
+price,
+image
+){
+
+const cart =
+document.getElementById(
+"cartItems"
+);
+
+/* ITEM */
+
+const item =
+document.createElement("div");
+
+item.className =
+"cart-item";
+
+item.innerHTML = `
+
+<img src="${image}">
+
+<div>
+
+<h4>${name}</h4>
+
+<p>
+IDR ${price.toLocaleString()}
+</p>
+
+</div>
+
+`;
+
+/* ADD */
+
+cart.appendChild(item);
+
+/* TOTAL */
+
+total += price;
+
+document.getElementById(
+"totalPrice"
+).innerText =
+
+`IDR ${total.toLocaleString()}`;
+
+}
