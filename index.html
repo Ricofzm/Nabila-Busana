@@ -1,272 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Nabila Busana</title>
-
-<style>
-
-body{
-margin:0;
-overflow:hidden;
-background:#111;
-}
-
-canvas{
-display:block;
-}
-
-h1{
-position:absolute;
-top:20px;
-left:20px;
-color:white;
-z-index:10;
-font-family:Arial;
-}
-
-.products{
-
-position:absolute;
-
-bottom:30px;
-left:50%;
-
-transform:translateX(-50%);
-
-display:flex;
-gap:10px;
-
-z-index:10;
-
-}
-
-.products button{
-
-padding:12px 20px;
-
-border:none;
-
-background:white;
-
-cursor:pointer;
-
-font-weight:bold;
-
-border-radius:10px;
-
-}
-
-</style>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VogueFit - Fitting Room</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>Nabila Busana</h1>
+<div class="container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <button class="back">← BACK TO SHOP</button>
+    
+    <h3>SELECT ITEM</h3>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('top')">TOP</button>
+      <button class="tab" onclick="showTab('bottom')">BOTTOM</button>
+      <button class="tab" onclick="showTab('shoes')">SHOES</button>
+    </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <div id="top" class="item-grid">
+      <div class="item" onclick="setLayer('top-layer', 'assets/top-1.png', this)">
+        <img src="assets/top-1.png">
+        <p>Oversize T-Shirt</p>
+        <p>IDR 199.000</p>
+      </div>
+      <div class="item" onclick="setLayer('top-layer', 'assets/top-2.png', this)">
+        <img src="assets/top-2.png">
+        <p>Basic T-Shirt</p>
+        <p>IDR 149.000</p>
+      </div>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+    <div id="bottom" class="item-grid hidden">
+      <div class="item" onclick="setLayer('bottom-layer', 'assets/bottom-1.png', this)">
+        <img src="assets/bottom-1.png">
+        <p>Cargo Shorts</p>
+        <p>IDR 249.000</p>
+      </div>
+    </div>
 
-<div class="products">
+    <div id="shoes" class="item-grid hidden">
+      <div class="item" onclick="setLayer('shoes-layer', 'assets/shoes-1.png', this)">
+        <img src="assets/shoes-1.png">
+        <p>Sneakers White</p>
+        <p>IDR 399.000</p>
+      </div>
+    </div>
 
-<button onclick="
-changeClothes(
-'./textures/hoodie-black.jpg'
-)
-">
+    <button class="add-cart">ADD TO CART</button>
+  </aside>
 
-Hoodie Black
+  <!-- Fitting Room -->
+  <main class="fitting-room">
+    <h2>FITTING ROOM</h2>
+    <p>See how it looks on our mannequin</p>
+    
+    <div class="mannequin-box">
+      <img src="assets/mannequin.png" class="base-mannequin">
+      <img id="shoes-layer" class="layer">
+      <img id="bottom-layer" class="layer">
+      <img id="top-layer" class="layer">
+    </div>
 
-</button>
-
-<button onclick="
-changeClothes(
-'./textures/hoodie-white.JPG'
-)
-">
-
-Hoodie White
-
-</button>
-
-<button onclick="
-changeClothes(
-'./textures/tshirt-red.jpg'
-)
-">
-
-Tshirt Red
-
-</button>
-
+    <div class="controls">
+      <button onclick="resetLook()">RESET</button>
+      <button onclick="saveLook()">SAVE LOOK</button>
+    </div>
+  </main>
 </div>
 
-<script>
-
-/* SCENE */
-const scene =
-new THREE.Scene();
-
-/* CAMERA */
-const camera =
-new THREE.PerspectiveCamera(
-75,
-window.innerWidth/window.innerHeight,
-0.1,
-1000
-);
-
-camera.position.set(0,1,3);
-
-/* RENDERER */
-const renderer =
-new THREE.WebGLRenderer({
-antialias:true
-});
-
-renderer.setSize(
-window.innerWidth,
-window.innerHeight
-);
-
-renderer.setPixelRatio(
-window.devicePixelRatio
-);
-
-document.body.appendChild(
-renderer.domElement
-);
-
-/* LIGHT */
-const light =
-new THREE.HemisphereLight(
-0xffffff,
-0x444444,
-5
-);
-
-scene.add(light);
-
-/* TEST CUBE */
-const cube =
-new THREE.Mesh(
-
-new THREE.BoxGeometry(),
-
-new THREE.MeshBasicMaterial({
-color:0xffffff,
-wireframe:true
-})
-
-);
-
-scene.add(cube);
-
-/* LOADER */
-const loader =
-new THREE.GLTFLoader();
-let bodyMaterial;
-
-loader.load(
-
-'./models/body.glb',
-
-function(gltf){
-
-console.log("MODEL MASUK");
-
-/* HAPUS KUBUS */
-scene.remove(cube);
-
-const model =
-gltf.scene;
-
-model.scale.set(
-1,
-1,
-1
-);
-
-model.position.set(
-0,
-0,
-0
-);
-
-model.rotation.y =
-0;
-
-camera.position.z = 5;
-
-scene.add(model);
-
-model.traverse((child)=>{
-
-if(child.isMesh){
-
-bodyMaterial =
-child.material;
-
-}
-
-});
-
-},
-
-undefined,
-
-function(error){
-
-console.error(error);
-
-}
-
-);
-
-/* ANIMATE */
-function animate(){
-
-requestAnimationFrame(
-animate
-);
-
-cube.rotation.x += 0.01;
-cube.rotation.y += 0.01;
-
-renderer.render(
-scene,
-camera
-);
-
-}
-
-animate();
-
-const textureLoader =
-new THREE.TextureLoader();
-
-function changeClothes(texturePath){
-
-const texture =
-textureLoader.load(texturePath);
-
-bodyMaterial.map =
-texture;
-
-bodyMaterial.needsUpdate =
-true;
-
-}
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
