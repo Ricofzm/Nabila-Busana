@@ -467,3 +467,18 @@ newDistance;
 }
 
 },{ passive:false });
+
+/* ===================== */
+/* FLOATING MENU */
+/* ===================== */
+
+function toggleMenu(){
+
+document
+.getElementById(
+"fabMenu"
+)
+.classList
+.toggle("active");
+
+}
