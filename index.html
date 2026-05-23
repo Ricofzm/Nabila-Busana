@@ -69,6 +69,22 @@
       <button onclick="saveLook()">SAVE LOOK</button>
     </div>
   </main>
+  <main class="fitting-room">
+  <h2>FITTING ROOM</h2>
+  
+  <!-- Toggle Mannequin -->
+  <div class="mannequin-toggle">
+    <button class="mode-btn active" onclick="switchMannequin('no-hijab')">No Hijab</button>
+    <button class="mode-btn" onclick="switchMannequin('hijab')">Hijab</button>
+  </div>
+
+  <div class="mannequin-box">
+    <img id="base-mannequin" src="assets/mannequin-no-hijab.png" class="base-mannequin">
+    <img id="shoes-layer" class="layer">
+    <img id="bottom-layer" class="layer">
+    <img id="top-layer" class="layer">
+  </div>
+</main>
 </div>
 
 <script src="script.js"></script>
