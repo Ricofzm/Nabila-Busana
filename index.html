@@ -1,75 +1,28 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VogueFit - Fitting Room</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<div class="container">
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <button class="back">← BACK TO SHOP</button>
-    
-    <h3>SELECT ITEM</h3>
-    <div class="tabs">
-      <button class="tab active" onclick="showTab('top')">TOP</button>
-      <button class="tab" onclick="showTab('bottom')">BOTTOM</button>
-      <button class="tab" onclick="showTab('shoes')">SHOES</button>
-    </div>
-
-    <div id="top" class="item-grid">
-      <div class="item" onclick="setLayer('top-layer', 'assets/top-1.PNG', this)">
-        <img src="assets/tbtop.PNG">
-        <p>Oversize T-Shirt</p>
-        <p>IDR 199.000</p>
-      </div>
-      <div class="item" onclick="setLayer('top-layer', 'assets/top-2.PNG', this)">
-        <img src="assets/top-2.PNG">
-        <p>Basic T-Shirt</p>
-        <p>IDR 149.000</p>
-      </div>
-    </div>
-
-    <div id="bottom" class="item-grid hidden">
-      <div class="item" onclick="setLayer('bottom-layer', 'assets/bottom-1.PNG', this)">
-        <img src="assets/bottom-1.PNG">
-        <p>Cargo Shorts</p>
-        <p>IDR 249.000</p>
-      </div>
-    </div>
-
-    <div id="shoes" class="item-grid hidden">
-      <div class="item" onclick="setLayer('shoes-layer', 'assets/shoes-1.PNG', this)">
-        <img src="assets/shoes-1.PNG">
-        <p>Sneakers White</p>
-        <p>IDR 399.000</p>
-      </div>
-    </div>
-
-    <button class="add-cart">ADD TO CART</button>
-  </aside>
-
-   <main class="fitting-room">
-  <h2>FITTING ROOM</h2>
-  
-  <!-- Toggle Mannequin -->
-  <div class="mannequin-toggle">
-    <button class="mode-btn active" onclick="switchMannequin('no-hijab')">No Hijab</button>
-    <button class="mode-btn" onclick="switchMannequin('hijab')">Hijab</button>
+<div id="top" class="item-grid">
+  <div class="item" onclick="setLayer('top-layer', 'assets/top-1.PNG', this)">
+    <img src="assets/tbtop.PNG">
+    <p>Oversize T-Shirt</p>
+    <p>IDR 199.000</p>
   </div>
-
-  <div class="mannequin-box">
-    <img id="base-mannequin" src="assets/mannequin-no-hijab.png" class="base-mannequin">
-    <img id="shoes-layer" class="layer">
-    <img id="bottom-layer" class="layer">
-    <img id="top-layer" class="layer">
+  <div class="item" onclick="setLayer('top-layer', 'assets/top-2.PNG', this)">
+    <img src="assets/top-2.PNG">
+    <p>Basic T-Shirt</p>
+    <p>IDR 149.000</p>
   </div>
-</main>
 </div>
 
-<script src="script.js"></script>
-</body>
-</html>
+<div id="bottom" class="item-grid hidden">
+  <div class="item" onclick="setLayer('bottom-layer', 'assets/bottom-1.PNG', this)">
+    <img src="assets/bottom-1.PNG">
+    <p>Cargo Shorts</p>
+    <p>IDR 249.000</p>
+  </div>
+</div>
+
+<div id="shoes" class="item-grid hidden">
+  <div class="item" onclick="setLayer('shoes-layer', 'assets/shoes-1.PNG', this)">
+    <img src="assets/shoes-1.PNG">
+    <p>Sneakers White</p>
+    <p>IDR 399.000</p>
+  </div>
+</div>
