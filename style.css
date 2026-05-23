@@ -175,8 +175,6 @@ height:auto;
 min-height:800px;
 }
 
-}
-
 /* TABS */
 
 .tabs{
@@ -201,4 +199,6 @@ opacity:.5;
 .tab.active{
 border-color:black;
 font-weight:700;
+}
+
 }
