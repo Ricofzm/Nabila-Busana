@@ -370,3 +370,36 @@ document.getElementById(
 `IDR ${total.toLocaleString()}`;
 
 }
+
+/* RESET OUTFIT */
+
+function resetOutfit(){
+
+/* DEFAULT ITEM */
+
+document.getElementById(
+"topLayer"
+).src =
+
+"assets/hoodie-black.PNG";
+
+document.getElementById(
+"pantsLayer"
+).src =
+
+"assets/pants-beige.PNG";
+
+document.getElementById(
+"shoesLayer"
+).src =
+
+"assets/shoes-white.PNG";
+
+/* RESET VIEW */
+
+scale = 1;
+rotate = 0;
+
+updateTransform();
+
+}
