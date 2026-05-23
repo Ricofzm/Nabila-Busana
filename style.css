@@ -498,3 +498,73 @@ color:red;
 .mannequin-area{
 touch-action:none;
 }
+
+/* ===================== */
+/* FLOATING MENU */
+/* ===================== */
+
+.controls{
+position:absolute;
+left:25px;
+bottom:25px;
+z-index:100;
+}
+
+/* MAIN BUTTON */
+
+.main-fab{
+width:70px;
+height:70px;
+border:none;
+border-radius:50%;
+background:#111;
+color:white;
+font-size:36px;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+transition:.3s;
+}
+
+.main-fab:hover{
+transform:scale(1.08);
+}
+
+/* MENU */
+
+.fab-menu{
+position:absolute;
+bottom:90px;
+display:flex;
+flex-direction:column;
+gap:14px;
+opacity:0;
+pointer-events:none;
+transform:translateY(20px);
+transition:.3s;
+}
+
+/* ACTIVE */
+
+.fab-menu.active{
+opacity:1;
+pointer-events:auto;
+transform:translateY(0);
+}
+
+/* BUTTON */
+
+.control-btn{
+width:58px;
+height:58px;
+border:none;
+border-radius:50%;
+background:white;
+font-size:20px;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.control-btn:hover{
+transform:scale(1.08);
+}
