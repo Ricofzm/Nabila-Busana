@@ -482,3 +482,114 @@ document
 .toggle("active");
 
 }
+
+/* ===================== */
+/* PRODUCT MODAL */
+/* ===================== */
+
+let selectedProduct = null;
+
+/* OPEN MODAL */
+
+function openModal(
+name,
+price,
+image,
+type
+){
+
+selectedProduct = {
+name,
+price,
+image,
+type
+};
+
+/* SHOW */
+
+document
+.getElementById(
+"productModal"
+)
+.classList
+.add("active");
+
+/* DATA */
+
+document
+.getElementById(
+"modalTitle"
+).innerText = name;
+
+document
+.getElementById(
+"modalPrice"
+).innerText =
+
+`IDR ${price.toLocaleString()}`;
+
+document
+.getElementById(
+"modalImage"
+).src = image;
+
+}
+
+/* CLOSE */
+
+function closeModal(){
+
+document
+.getElementById(
+"productModal"
+)
+.classList
+.remove("active");
+
+}
+
+/* ADD FROM MODAL */
+
+function addModalToCart(){
+
+if(!selectedProduct) return;
+
+/* CART */
+
+addToCart(
+selectedProduct.name,
+selectedProduct.price,
+selectedProduct.image
+);
+
+/* FITTING */
+
+if(selectedProduct.type === "top"){
+
+changeTop(
+selectedProduct.image
+);
+
+}
+
+if(selectedProduct.type === "pants"){
+
+changePants(
+selectedProduct.image
+);
+
+}
+
+if(selectedProduct.type === "shoes"){
+
+changeShoes(
+selectedProduct.image
+);
+
+}
+
+/* CLOSE */
+
+closeModal();
+
+}
