@@ -1,78 +1,619 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VogueFit - Fitting Room</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>VogueFit</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f5f5f5;
+color:#111;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+height:80px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 50px;
+border-bottom:1px solid #e5e5e5;
+}
+
+.logo{
+font-size:32px;
+font-weight:700;
+letter-spacing:4px;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+font-size:14px;
+font-weight:500;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#111;
+transition:.3s;
+}
+
+.nav-links a:hover{
+opacity:.5;
+}
+
+.nav-icons{
+display:flex;
+gap:20px;
+font-size:20px;
+}
+
+/* MAIN */
+
+.container{
+display:grid;
+grid-template-columns:320px 1fr 320px;
+gap:25px;
+padding:25px;
+}
+
+/* LEFT PANEL */
+
+.sidebar{
+background:white;
+border-radius:20px;
+padding:25px;
+height:calc(100vh - 130px);
+overflow:auto;
+}
+
+.sidebar h3{
+font-size:14px;
+margin-bottom:20px;
+letter-spacing:1px;
+}
+
+.tabs{
+display:flex;
+gap:20px;
+margin-bottom:25px;
+font-size:13px;
+}
+
+.tabs div{
+cursor:pointer;
+padding-bottom:8px;
+border-bottom:2px solid transparent;
+}
+
+.tabs .active{
+border-color:black;
+font-weight:600;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.product-card{
+background:#fafafa;
+border-radius:18px;
+padding:12px;
+cursor:pointer;
+transition:.3s;
+border:1px solid transparent;
+}
+
+.product-card:hover{
+transform:translateY(-5px);
+border-color:#ddd;
+}
+
+.product-card img{
+width:100%;
+border-radius:12px;
+}
+
+.product-name{
+font-size:13px;
+margin-top:10px;
+font-weight:600;
+}
+
+.product-price{
+font-size:12px;
+color:#666;
+margin-top:4px;
+}
+
+/* CENTER */
+
+.viewer{
+background:white;
+border-radius:20px;
+padding:30px;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:850px;
+overflow:hidden;
+}
+
+.viewer-bg{
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#f3f3f3,#e8e8e8);
+border-radius:50%;
+}
+
+.mannequin-area{
+position:relative;
+width:420px;
+height:760px;
+z-index:2;
+}
+
+.layer{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:contain;
+pointer-events:none;
+}
+
+/* RIGHT PANEL */
+
+.right-panel{
+background:white;
+border-radius:20px;
+padding:25px;
+height:calc(100vh - 130px);
+overflow:auto;
+}
+
+.section-title{
+font-size:14px;
+font-weight:700;
+margin-bottom:15px;
+}
+
+.body-types{
+display:flex;
+gap:10px;
+margin-bottom:30px;
+}
+
+.body-btn{
+flex:1;
+padding:14px;
+border:1px solid #ddd;
+border-radius:14px;
+background:white;
+cursor:pointer;
+transition:.3s;
+font-size:13px;
+}
+
+.body-btn:hover{
+background:#111;
+color:white;
+}
+
+.colors{
+display:flex;
+gap:12px;
+margin-bottom:30px;
+}
+
+.color{
+width:34px;
+height:34px;
+border-radius:50%;
+cursor:pointer;
+border:2px solid #eee;
+}
+
+.color.black{
+background:black;
+}
+
+.color.white{
+background:white;
+}
+
+.color.gray{
+background:#bdbdbd;
+}
+
+.color.beige{
+background:#d8c8b5;
+}
+
+.action-btn{
+width:100%;
+height:56px;
+border:none;
+border-radius:16px;
+background:#111;
+color:white;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+margin-top:15px;
+}
+
+.action-btn:hover{
+transform:translateY(-2px);
+background:#222;
+}
+
+/* BOTTOM */
+
+.recommend{
+margin:0 25px 25px;
+background:white;
+border-radius:20px;
+padding:25px;
+}
+
+.recommend h2{
+font-size:18px;
+margin-bottom:25px;
+}
+
+.recommend-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:20px;
+}
+
+.recommend-card{
+background:#fafafa;
+border-radius:18px;
+padding:15px;
+transition:.3s;
+}
+
+.recommend-card:hover{
+transform:translateY(-5px);
+}
+
+.recommend-card img{
+width:100%;
+border-radius:14px;
+}
+
+.recommend-card h4{
+font-size:14px;
+margin-top:12px;
+}
+
+.recommend-card p{
+font-size:12px;
+color:#666;
+margin-top:5px;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:6px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#ddd;
+border-radius:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:1200px){
+
+.container{
+grid-template-columns:1fr;
+}
+
+.sidebar,
+.right-panel{
+height:auto;
+}
+
+.recommend-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.viewer{
+min-height:700px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-<div class="container">
-  <aside class="sidebar">
-    <button class="back">← BACK TO SHOP</button>
-    
-    <h3>SELECT ITEM</h3>
-    <div class="tabs">
-      <button class="tab active" onclick="showTab('top', this)">TOP</button>
-      <button class="tab" onclick="showTab('bottom', this)">BOTTOM</button>
-      <button class="tab" onclick="showTab('shoes', this)">SHOES</button>
-    </div>
+<!-- NAVBAR -->
 
-    <div id="top" class="item-grid">
-      <div class="item" onclick="setLayer('top-layer', 'assets/top-1.PNG', this)">
-        <img src="assets/tbtop.PNG">
-        <p>Oversize T-Shirt</p>
-        <p>IDR 199.000</p>
-      </div>
-      <div class="item" onclick="setLayer('top-layer', 'assets/top-2.PNG', this)">
-        <img src="assets/top-2.PNG">
-        <p>Basic T-Shirt</p>
-        <p>IDR 149.000</p>
-      </div>
-    </div>
+<nav class="navbar">
 
-    <div id="bottom" class="item-grid hidden">
-      <div class="item" onclick="setLayer('bottom-layer', 'assets/bottom-1.PNG', this)">
-        <img src="assets/bottom-1.PNG">
-        <p>Cargo Shorts</p>
-        <p>IDR 249.000</p>
-      </div>
-    </div>
+<div class="logo">VOGUEFIT</div>
 
-    <div id="shoes" class="item-grid hidden">
-      <div class="item" onclick="setLayer('shoes-layer', 'assets/shoes-1.PNG', this)">
-        <img src="assets/shoes-1.PNG">
-        <p>Sneakers White</p>
-        <p>IDR 399.000</p>
-      </div>
-    </div>
-
-    <button class="add-cart">ADD TO CART</button>
-  </aside>
-
-  <main class="fitting-room">
-    <h2>FITTING ROOM</h2>
-    <p>See how it looks on our mannequin</p>
-    
-    <div class="mannequin-toggle">
-      <button class="mode-btn active" onclick="switchMannequin('no-hijab', this)">No Hijab</button>
-      <button class="mode-btn" onclick="switchMannequin('hijab', this)">Hijab</button>
-    </div>
-
-    <div class="mannequin-box">
-      <img id="base-mannequin" src="assets/mannequin-no-hijab.PNG" class="base-mannequin">
-      <img id="shoes-layer" class="layer">
-      <img id="bottom-layer" class="layer">
-      <img id="top-layer" class="layer">
-    </div>
-
-    <div class="controls">
-      <button onclick="resetLook()">RESET</button>
-    </div>
-  </main>
+<div class="nav-links">
+<a href="#">HOME</a>
+<a href="#">SHOP</a>
+<a href="#">NEW IN</a>
+<a href="#">COLLECTION</a>
+<a href="#">SALE</a>
 </div>
 
-<script src="script.js"></script>
+<div class="nav-icons">
+<span>⌕</span>
+<span>♡</span>
+<span>👜</span>
+</div>
+
+</nav>
+
+<!-- MAIN -->
+
+<div class="container">
+
+<!-- LEFT -->
+
+<div class="sidebar">
+
+<h3>SELECT ITEM</h3>
+
+<div class="tabs">
+<div class="active">TOP</div>
+<div>BOTTOM</div>
+<div>OUTER</div>
+<div>DRESS</div>
+</div>
+
+<div class="product-grid">
+
+<div class="product-card"
+onclick="changeTop('https://i.imgur.com/zYIlgBl.png')">
+
+<img src="https://i.imgur.com/zYIlgBl.png">
+
+<div class="product-name">
+Oversize T-Shirt
+</div>
+
+<div class="product-price">
+IDR 199.000
+</div>
+
+</div>
+
+<div class="product-card"
+onclick="changeTop('https://i.imgur.com/vR8wQbE.png')">
+
+<img src="https://i.imgur.com/vR8wQbE.png">
+
+<div class="product-name">
+Basic T-Shirt
+</div>
+
+<div class="product-price">
+IDR 149.000
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://i.imgur.com/rh9GQ7x.png">
+
+<div class="product-name">
+Pocket T-Shirt
+</div>
+
+<div class="product-price">
+IDR 159.000
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://i.imgur.com/3kL5R3m.png">
+
+<div class="product-name">
+Striped Tee
+</div>
+
+<div class="product-price">
+IDR 179.000
+</div>
+
+</div>
+
+</div>
+
+<button class="action-btn">
+ADD TO CART
+</button>
+
+</div>
+
+<!-- CENTER -->
+
+<div class="viewer">
+
+<div class="viewer-bg"></div>
+
+<div class="mannequin-area">
+
+<img
+class="layer"
+src="https://i.imgur.com/8Km9tLL.png"
+/>
+
+<img
+id="topLayer"
+class="layer"
+src="https://i.imgur.com/zYIlgBl.png"
+/>
+
+<img
+id="bottomLayer"
+class="layer"
+src="https://i.imgur.com/o6K0AUG.png"
+/>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="right-panel">
+
+<div class="section-title">
+MANNEQUIN
+</div>
+
+<div class="body-types">
+
+<button class="body-btn">
+Slim
+</button>
+
+<button class="body-btn">
+Regular
+</button>
+
+<button class="body-btn">
+Plus Size
+</button>
+
+</div>
+
+<div class="section-title">
+BACKGROUND
+</div>
+
+<div class="colors">
+
+<div class="color black"></div>
+<div class="color white"></div>
+<div class="color gray"></div>
+<div class="color beige"></div>
+
+</div>
+
+<div class="section-title">
+RECENT ITEMS
+</div>
+
+<div class="product-card">
+<img src="https://i.imgur.com/zYIlgBl.png">
+<div class="product-name">
+Oversize T-Shirt
+</div>
+</div>
+
+<div class="product-card" style="margin-top:15px;">
+<img src="https://i.imgur.com/o6K0AUG.png">
+<div class="product-name">
+Cargo Shorts
+</div>
+</div>
+
+<button class="action-btn">
+SAVE LOOK
+</button>
+
+<button class="action-btn"
+style="
+background:white;
+color:black;
+border:1px solid #ddd;
+">
+SHARE
+</button>
+
+</div>
+
+</div>
+
+<!-- BOTTOM -->
+
+<div class="recommend">
+
+<h2>YOU MAY ALSO LIKE</h2>
+
+<div class="recommend-grid">
+
+<div class="recommend-card">
+<img src="https://i.imgur.com/FVwQJ3h.png">
+<h4>Relaxed Shirt</h4>
+<p>IDR 229.000</p>
+</div>
+
+<div class="recommend-card">
+<img src="https://i.imgur.com/jT4W8Kf.png">
+<h4>Short Sleeve Shirt</h4>
+<p>IDR 199.000</p>
+</div>
+
+<div class="recommend-card">
+<img src="https://i.imgur.com/2B9Yk7f.png">
+<h4>Denim Jacket</h4>
+<p>IDR 399.000</p>
+</div>
+
+<div class="recommend-card">
+<img src="https://i.imgur.com/cS6YB0L.png">
+<h4>Chino Pants</h4>
+<p>IDR 299.000</p>
+</div>
+
+<div class="recommend-card">
+<img src="https://i.imgur.com/Nz9fM6Y.png">
+<h4>Canvas Sneakers</h4>
+<p>IDR 349.000</p>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function changeTop(img){
+document.getElementById("topLayer").src = img;
+}
+
+</script>
+
 </body>
 </html>
