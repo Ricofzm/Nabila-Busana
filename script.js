@@ -243,11 +243,28 @@ updateTotal();
 
 function updateTotal(){
 
+/* SHIPPING */
+
+const shipping = 20000;
+
+/* SUBTOTAL */
+
+document.getElementById(
+"subtotalPrice"
+).innerText =
+
+`IDR ${total.toLocaleString()}`;
+
+/* TOTAL */
+
+const finalTotal =
+total + shipping;
+
 document.getElementById(
 "totalPrice"
 ).innerText =
 
-`IDR ${total.toLocaleString()}`;
+`IDR ${finalTotal.toLocaleString()}`;
 
 }
 
