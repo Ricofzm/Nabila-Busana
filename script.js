@@ -367,3 +367,103 @@ document.getElementById(
 resetView();
 
 }
+
+/* ===================== */
+/* PINCH ZOOM MOBILE */
+/* ===================== */
+
+const viewer =
+document.getElementById(
+"viewerModel"
+);
+
+let startDistance = 0;
+
+/* DISTANCE */
+
+function getDistance(
+touches
+){
+
+const dx =
+touches[0].clientX -
+touches[1].clientX;
+
+const dy =
+touches[0].clientY -
+touches[1].clientY;
+
+return Math.sqrt(
+dx * dx + dy * dy
+);
+
+}
+
+/* TOUCH START */
+
+viewer.addEventListener(
+"touchstart",
+e=>{
+
+if(e.touches.length === 2){
+
+startDistance =
+getDistance(
+e.touches
+);
+
+}
+
+});
+
+/* TOUCH MOVE */
+
+viewer.addEventListener(
+"touchmove",
+e=>{
+
+if(e.touches.length === 2){
+
+e.preventDefault();
+
+const newDistance =
+getDistance(
+e.touches
+);
+
+/* ZOOM */
+
+if(newDistance > startDistance){
+
+scale += 0.02;
+
+}
+
+else{
+
+scale -= 0.02;
+
+}
+
+/* LIMIT */
+
+if(scale < 0.5){
+
+scale = 0.5;
+
+}
+
+if(scale > 2.5){
+
+scale = 2.5;
+
+}
+
+updateTransform();
+
+startDistance =
+newDistance;
+
+}
+
+},{ passive:false });
