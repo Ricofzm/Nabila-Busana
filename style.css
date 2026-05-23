@@ -492,3 +492,9 @@ padding:0;
 .remove-btn:hover{
 color:red;
 }
+
+/* MOBILE TOUCH */
+
+.mannequin-area{
+touch-action:none;
+}
