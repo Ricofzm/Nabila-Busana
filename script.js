@@ -152,6 +152,8 @@ let total = 0;
 
 /* ADD TO CART */
 
+/* ADD TO CART */
+
 function addToCart(
 name,
 price,
@@ -162,6 +164,115 @@ const cart =
 document.getElementById(
 "cartItems"
 );
+
+/* CHECK EXISTING */
+
+const existingItem =
+Array.from(
+document.querySelectorAll(".cart-item")
+).find(item =>
+
+item.dataset.name === name
+
+);
+
+/* IF EXIST */
+
+if(existingItem){
+
+const qtyText =
+existingItem.querySelector(".qty");
+
+let qty =
+parseInt(qtyText.innerText);
+
+qty++;
+
+qtyText.innerText = qty;
+
+/* TOTAL */
+
+total += price;
+
+updateTotal();
+
+return;
+
+}
+
+/* CREATE ITEM */
+
+const item =
+document.createElement("div");
+
+item.className =
+"cart-item";
+
+/* DATA */
+
+item.dataset.name = name;
+
+item.innerHTML = `
+
+<img src="${image}">
+
+<div class="cart-info">
+
+<h4>${name}</h4>
+
+<p>
+IDR ${price.toLocaleString()}
+</p>
+
+<div class="qty-controls">
+
+<button onclick="
+changeQty(
+this,
+-${price}
+)">
+−
+</button>
+
+<span class="qty">
+1
+</span>
+
+<button onclick="
+changeQty(
+this,
+${price}
+)">
++
+</button>
+
+</div>
+
+<button
+class="remove-btn"
+onclick="
+removeItem(
+this,
+${price}
+)">
+Remove
+</button>
+
+</div>
+
+`;
+
+/* APPEND */
+
+cart.appendChild(item);
+
+/* TOTAL */
+
+total += price;
+
+updateTotal();
+
+}
 
 /* ITEM */
 
