@@ -152,8 +152,6 @@ let total = 0;
 
 /* ADD TO CART */
 
-/* ADD TO CART */
-
 function addToCart(
 name,
 price,
@@ -172,8 +170,8 @@ Array.from(
 document.querySelectorAll(".cart-item")
 ).find(item =>
 
-item.dataset.name =
-name + "-" + selectedSize;
+item.dataset.name ===
+name + "-" + selectedSize
 
 );
 
