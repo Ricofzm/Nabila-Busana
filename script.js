@@ -561,7 +561,7 @@ if(!selectedProduct) return;
 addToCart(
 selectedProduct.name,
 selectedProduct.price,
-selectedProduct.fitImage
+selectedProduct.thumbnail
 );
 
 /* FITTING */
