@@ -172,7 +172,8 @@ Array.from(
 document.querySelectorAll(".cart-item")
 ).find(item =>
 
-item.dataset.name === name
+item.dataset.name =
+name + "-" + selectedSize;
 
 );
 
@@ -523,6 +524,7 @@ document
 /* ===================== */
 
 let selectedProduct = null;
+let selectedSize = "S";
 
 /* OPEN MODAL */
 
@@ -628,5 +630,30 @@ selectedProduct.fitImage
 /* CLOSE */
 
 closeModal();
+
+}
+
+/* SELECT SIZE */
+
+function selectSize(
+element,
+size
+){
+
+selectedSize = size;
+
+/* REMOVE ACTIVE */
+
+document
+.querySelectorAll(".size-btn")
+.forEach(btn=>{
+
+btn.classList.remove("active");
+
+});
+
+/* ACTIVE */
+
+element.classList.add("active");
 
 }
