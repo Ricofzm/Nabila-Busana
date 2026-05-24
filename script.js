@@ -219,7 +219,13 @@ item.innerHTML = `
 
 <div class="cart-info">
 
-<h4>${name}</h4>
+<h4>
+${name}
+</h4>
+
+<p>
+Size: ${selectedSize}
+</p>
 
 <p>
 IDR ${price.toLocaleString()}
