@@ -569,7 +569,7 @@ selectedProduct.fitImage
 if(selectedProduct.type === "top"){
 
 changeTop(
-selectedProduct.image
+selectedProduct.fitImage
 );
 
 }
@@ -577,7 +577,7 @@ selectedProduct.image
 if(selectedProduct.type === "pants"){
 
 changePants(
-selectedProduct.image
+selectedProduct.fitImage
 );
 
 }
@@ -585,7 +585,7 @@ selectedProduct.image
 if(selectedProduct.type === "shoes"){
 
 changeShoes(
-selectedProduct.image
+selectedProduct.fitImage
 );
 
 }
