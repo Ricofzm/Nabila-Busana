@@ -494,14 +494,16 @@ let selectedProduct = null;
 function openModal(
 name,
 price,
-image,
+thumbnail,
+fitImage,
 type
 ){
 
 selectedProduct = {
 name,
 price,
-image,
+thumbnail,
+fitImage,
 type
 };
 
@@ -531,7 +533,7 @@ document
 document
 .getElementById(
 "modalImage"
-).src = image;
+).src = thumbnail;
 
 }
 
@@ -559,7 +561,7 @@ if(!selectedProduct) return;
 addToCart(
 selectedProduct.name,
 selectedProduct.price,
-selectedProduct.image
+selectedProduct.fitImage
 );
 
 /* FITTING */
