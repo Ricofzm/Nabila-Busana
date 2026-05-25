@@ -1,4 +1,41 @@
 /* ===================== */
+/* SEARCH PRODUCT */
+/* ===================== */
+
+function searchProduct(value){
+
+const search =
+value.toLowerCase();
+
+document
+.querySelectorAll(".product-card")
+.forEach(card=>{
+
+const name =
+card.dataset.name
+.toLowerCase();
+
+/* SHOW / HIDE */
+
+if(name.includes(search)){
+
+card.style.display =
+"block";
+
+}
+
+else{
+
+card.style.display =
+"none";
+
+}
+
+});
+
+}
+
+/* ===================== */
 /* WISHLIST */
 /* ===================== */
 
