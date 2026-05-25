@@ -823,6 +823,38 @@ document
 "modalImage"
 ).src = thumbnail;
 
+const wishBtn =
+document.querySelector(
+".wishlist-modal-btn"
+);
+
+const exists =
+wishlist.find(item=>
+item.name === name
+);
+
+if(exists){
+
+wishBtn.classList.add(
+"active"
+);
+
+wishBtn.innerText =
+"♥ WISHLISTED";
+
+}
+
+else{
+
+wishBtn.classList.remove(
+"active"
+);
+
+wishBtn.innerText =
+"♡ ADD TO WISHLIST";
+
+}
+
 document.getElementById(
 "modalStock"
 ).innerText =
@@ -1130,5 +1162,64 @@ saveCart();
 /* CLOSE */
 
 closeCheckout();
+
+}
+
+function toggleWishlist(){
+
+const btn =
+document.querySelector(
+".wishlist-modal-btn"
+);
+
+const exists =
+wishlist.find(item=>
+item.name === selectedProduct.name
+);
+
+/* REMOVE */
+
+if(exists){
+
+wishlist =
+wishlist.filter(item=>
+item.name !== selectedProduct.name
+);
+
+btn.classList.remove(
+"active"
+);
+
+btn.innerText =
+"♡ ADD TO WISHLIST";
+
+}
+
+/* ADD */
+
+else{
+
+wishlist.push({
+
+name:
+selectedProduct.name,
+
+image:
+selectedProduct.thumbnail
+
+});
+
+btn.classList.add(
+"active"
+);
+
+btn.innerText =
+"♥ WISHLISTED";
+
+}
+
+/* UPDATE */
+
+renderWishlist();
 
 }
