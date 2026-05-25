@@ -1,4 +1,45 @@
 /* ===================== */
+/* WISHLIST */
+/* ===================== */
+
+document
+.querySelectorAll(".wishlist-btn")
+.forEach(btn=>{
+
+btn.addEventListener(
+"click",
+function(e){
+
+e.stopPropagation();
+
+this.classList.toggle(
+"active"
+);
+
+/* ICON */
+
+if(
+this.classList.contains(
+"active"
+)
+){
+
+this.innerText = "♥";
+
+}
+
+else{
+
+this.innerText = "♡";
+
+}
+
+}
+);
+
+});
+
+/* ===================== */
 /* STOCK SYSTEM */
 /* ===================== */
 
