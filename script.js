@@ -171,7 +171,7 @@ document.querySelectorAll(".cart-item")
 ).find(item =>
 
 item.dataset.name ===
-name + "-" + selectedSize
+name + "-" + selectedSize + "-" + selectedColor
 
 );
 
@@ -223,6 +223,9 @@ ${name}
 
 <p>
 Size: ${selectedSize}
+</p>
+<p>
+Color: ${selectedColor}
 </p>
 
 <p>
@@ -614,7 +617,7 @@ selectedProduct.thumbnail
 if(selectedProduct.type === "top"){
 
 changeTop(
-selectedProduct.fitImage
+selectedFitImage
 );
 
 }
@@ -622,7 +625,7 @@ selectedProduct.fitImage
 if(selectedProduct.type === "pants"){
 
 changePants(
-selectedProduct.fitImage
+selectedFitImage
 );
 
 }
@@ -630,7 +633,7 @@ selectedProduct.fitImage
 if(selectedProduct.type === "shoes"){
 
 changeShoes(
-selectedProduct.fitImage
+selectedFitImage
 );
 
 }
