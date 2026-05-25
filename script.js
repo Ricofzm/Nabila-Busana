@@ -629,6 +629,30 @@ function addModalToCart(){
 
 if(!selectedProduct) return;
 
+/* STOCK CHECK */
+
+if(
+stocks[selectedProduct.name] <= 0
+){
+
+alert("Stock habis");
+
+return;
+
+}
+
+/* REDUCE STOCK */
+
+stocks[selectedProduct.name]--;
+
+/* UPDATE STOCK UI */
+
+document.getElementById(
+"modalStock"
+).innerText =
+
+`Stock: ${stocks[selectedProduct.name]}`;
+
 /* CART */
 
 addToCart(
@@ -641,25 +665,19 @@ selectedProduct.thumbnail
 
 if(selectedProduct.type === "top"){
 
-changeTop(
-selectedFitImage
-);
+changeTop(selectedFitImage);
 
 }
 
 if(selectedProduct.type === "pants"){
 
-changePants(
-selectedFitImage
-);
+changePants(selectedFitImage);
 
 }
 
 if(selectedProduct.type === "shoes"){
 
-changeShoes(
-selectedFitImage
-);
+changeShoes(selectedFitImage);
 
 }
 
