@@ -790,3 +790,88 @@ saveCart();
 
 loadCart();
 
+/* ===================== */
+/* CHECKOUT */
+/* ===================== */
+
+function openCheckout(){
+
+/* EMPTY CART */
+
+if(total <= 0){
+
+alert(
+"Cart is empty!"
+);
+
+return;
+
+}
+
+/* OPEN MODAL */
+
+document
+.getElementById(
+"checkoutModal"
+)
+.classList
+.add("active");
+
+/* COPY TOTAL */
+
+document.getElementById(
+"checkoutSubtotal"
+).innerText =
+
+document.getElementById(
+"subtotalPrice"
+).innerText;
+
+document.getElementById(
+"checkoutTotal"
+).innerText =
+
+document.getElementById(
+"totalPrice"
+).innerText;
+
+}
+
+/* CLOSE */
+
+function closeCheckout(){
+
+document
+.getElementById(
+"checkoutModal"
+)
+.classList
+.remove("active");
+
+}
+
+/* PLACE ORDER */
+
+function placeOrder(){
+
+alert(
+"Order placed successfully!"
+);
+
+/* RESET CART */
+
+document.getElementById(
+"cartItems"
+).innerHTML = "";
+
+total = 0;
+
+updateTotal();
+
+saveCart();
+
+/* CLOSE */
+
+closeCheckout();
+
+}
