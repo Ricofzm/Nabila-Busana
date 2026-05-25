@@ -121,6 +121,10 @@ width:700px;
 height:700px;
 border-radius:50%;
 background:radial-gradient(circle,#f8f8f8,#e8e8e8);
+
+/* TAMBAH */
+border:none;
+outline:none;
 }
 
 /* MANNEQUIN */
