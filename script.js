@@ -1,4 +1,144 @@
 /* ===================== */
+/* WISHLIST SYSTEM */
+/* ===================== */
+
+let wishlist = [];
+
+/* TOGGLE */
+
+document
+.querySelectorAll(".wishlist-btn")
+.forEach(btn=>{
+
+btn.addEventListener(
+"click",
+function(e){
+
+e.stopPropagation();
+
+const card =
+this.closest(".product-card");
+
+const image =
+card.querySelector("img").src;
+
+const name =
+card.dataset.name;
+
+/* ACTIVE */
+
+this.classList.toggle(
+"active"
+);
+
+/* ADD */
+
+if(
+this.classList.contains(
+"active"
+)
+){
+
+this.innerText = "♥";
+
+/* SAVE */
+
+wishlist.push({
+name,
+image
+});
+
+}
+
+/* REMOVE */
+
+else{
+
+this.innerText = "♡";
+
+wishlist =
+wishlist.filter(item=>
+item.name !== name
+);
+
+}
+
+/* UPDATE */
+
+renderWishlist();
+
+}
+);
+
+});
+
+/* RENDER */
+
+function renderWishlist(){
+
+const container =
+document.getElementById(
+"wishlistItems"
+);
+
+container.innerHTML = "";
+
+/* COUNT */
+
+document.getElementById(
+"wishlistCount"
+).innerText =
+wishlist.length;
+
+/* LOOP */
+
+wishlist.forEach(item=>{
+
+container.innerHTML += `
+
+<div class="wishlist-item">
+
+<img src="${item.image}">
+
+<h4>
+${item.name}
+</h4>
+
+</div>
+
+`;
+
+});
+
+}
+
+/* OPEN */
+
+function openWishlist(){
+
+document
+.getElementById(
+"wishlistModal"
+)
+.classList
+.add("active");
+
+}
+
+/* CLOSE */
+
+function closeWishlist(){
+
+document
+.getElementById(
+"wishlistModal"
+)
+.classList
+.remove("active");
+
+}
+
+/* ===================== */
 /* SEARCH PRODUCT */
 /* ===================== */
 
