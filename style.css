@@ -885,3 +885,61 @@ transition:.3s;
 .place-order-btn:hover{
 transform:translateY(-3px);
 }
+
+/* ===================== */
+/* CHECKOUT */
+/* ===================== */
+
+function openCheckout(){
+
+document
+.getElementById(
+"checkoutModal"
+)
+.classList
+.add("active");
+
+/* COPY TOTAL */
+
+document.getElementById(
+"checkoutSubtotal"
+).innerText =
+
+document.getElementById(
+"subtotalPrice"
+).innerText;
+
+document.getElementById(
+"checkoutTotal"
+).innerText =
+
+document.getElementById(
+"totalPrice"
+).innerText;
+
+}
+
+/* CLOSE */
+
+function closeCheckout(){
+
+document
+.getElementById(
+"checkoutModal"
+)
+.classList
+.remove("active");
+
+}
+
+/* PLACE ORDER */
+
+function placeOrder(){
+
+alert(
+"Order placed successfully!"
+);
+
+closeCheckout();
+
+}
