@@ -24,6 +24,15 @@ href="style.css">
 Nabila Busana
 </div>
 
+<div
+class="wishlist-nav"
+onclick="openWishlist()">
+❤
+<span id="wishlistCount">
+0
+</span>
+</div>
+
 </nav>
 
 <!-- MAIN -->
@@ -573,6 +582,33 @@ class="place-order-btn"
 onclick="placeOrder()">
 PLACE ORDER
 </button>
+
+</div>
+
+</div>
+
+<!-- WISHLIST MODAL -->
+
+<div
+class="wishlist-modal"
+id="wishlistModal">
+
+<div class="wishlist-box">
+
+<button
+class="close-modal"
+onclick="closeWishlist()">
+✕
+</button>
+
+<h2>
+Wishlist
+</h2>
+
+<div
+class="wishlist-items"
+id="wishlistItems">
+</div>
 
 </div>
 
