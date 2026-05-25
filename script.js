@@ -194,6 +194,7 @@ qtyText.innerText = qty;
 total += price;
 
 updateTotal();
+saveCart();
 
 return;
 
@@ -279,6 +280,7 @@ cart.appendChild(item);
 total += price;
 
 updateTotal();
+saveCart();
 
 }
 
@@ -356,6 +358,7 @@ total += priceChange;
 qtyText.innerText = qty;
 
 updateTotal();
+saveCart();
 
 }
 
@@ -384,10 +387,12 @@ item.querySelector(".qty")
 total -= price * qty;
 
 updateTotal();
+saveCart();
 
 /* DELETE */
 
 item.remove();
+saveCart();
 
 }
 
@@ -714,3 +719,72 @@ changeShoes(fitImage);
 }
 
 }
+
+/* ===================== */
+/* SAVE CART */
+/* ===================== */
+
+function saveCart(){
+
+localStorage.setItem(
+"voguefit-cart",
+
+document.getElementById(
+"cartItems"
+).innerHTML
+
+);
+
+/* SAVE TOTAL */
+
+localStorage.setItem(
+"voguefit-total",
+total
+);
+
+}
+
+/* ===================== */
+/* LOAD CART */
+/* ===================== */
+
+function loadCart(){
+
+const savedCart =
+localStorage.getItem(
+"voguefit-cart"
+);
+
+const savedTotal =
+localStorage.getItem(
+"voguefit-total"
+);
+
+/* LOAD HTML */
+
+if(savedCart){
+
+document.getElementById(
+"cartItems"
+).innerHTML = savedCart;
+
+}
+
+/* LOAD TOTAL */
+
+if(savedTotal){
+
+total =
+parseInt(savedTotal);
+
+updateTotal();
+saveCart();
+
+}
+
+}
+
+/* AUTO LOAD */
+
+loadCart();
+
