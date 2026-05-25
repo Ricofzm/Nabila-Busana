@@ -1,3 +1,15 @@
+/* ===================== */
+/* STOCK SYSTEM */
+/* ===================== */
+
+let stocks = {
+
+"Black Hoodie": 10,
+"Cargo Pants": 7,
+"Sneakers White": 5
+
+};
+
 function changeTop(img){
 
 document.getElementById("topLayer").src = img;
