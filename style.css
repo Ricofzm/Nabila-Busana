@@ -186,16 +186,47 @@ body{
 overflow:auto;
 }
 
+/* MAIN */
+
 .main{
-grid-template-columns:1fr;
+display:flex;
+flex-direction:column;
+height:auto;
+padding:15px;
+gap:20px;
 }
+
+/* SIDEBAR */
 
 .sidebar{
-height:auto;
+width:100%;
+border:none;
+border-radius:24px;
 }
 
+/* VIEWER */
+
 .viewer{
-min-height:800px;
+width:100%;
+min-height:650px;
+margin-top:-20px;
+}
+
+/* MANNEQUIN */
+
+.mannequin-area{
+width:320px;
+height:580px;
+margin:auto;
+}
+
+/* CART */
+
+.cart-panel{
+width:100%;
+border:none;
+border-radius:24px;
+}
 }
 
 /* TABS */
