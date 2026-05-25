@@ -29,7 +29,6 @@ border-bottom:1px solid #e5e5e5;
 position:relative;
 z-index:9999;
 }
-}
 
 .logo{
 font-size:30px;
@@ -208,7 +207,7 @@ border-radius:24px;
 .viewer{
 width:100%;
 min-height:650px;
-margin-top:-20px;
+margin-top:0;
 }
 
 /* MANNEQUIN */
@@ -252,8 +251,6 @@ opacity:.5;
 .tab.active{
 border-color:black;
 font-weight:700;
-}
-
 }
 
 /* CART PANEL */
