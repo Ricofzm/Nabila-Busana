@@ -105,6 +105,11 @@ align-items:center;
 justify-content:center;
 position:relative;
 overflow:hidden;
+
+/* TAMBAH */
+border:none;
+outline:none;
+background:transparent;
 }
 
 /* CIRCLE BG */
@@ -126,6 +131,12 @@ width:420px;
 height:760px;
 z-index:2;
 transition:.4s;
+
+/* TAMBAH INI */
+border:none;
+outline:none;
+box-shadow:none;
+background:transparent;
 }
 
 /* LAYER */
