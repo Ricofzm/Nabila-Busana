@@ -602,6 +602,12 @@ document
 "modalImage"
 ).src = thumbnail;
 
+document.getElementById(
+"modalStock"
+).innerText =
+
+`Stock: ${stocks[name]}`;
+
 }
 
 /* CLOSE */
