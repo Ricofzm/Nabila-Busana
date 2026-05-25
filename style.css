@@ -26,6 +26,9 @@ align-items:center;
 justify-content:space-between;
 padding:0 40px;
 border-bottom:1px solid #e5e5e5;
+position:relative;
+z-index:9999;
+}
 }
 
 .logo{
@@ -109,8 +112,7 @@ align-items:center;
 justify-content:center;
 position:relative;
 overflow:hidden;
-
-/* TAMBAH */
+z-index:1;
 border:none;
 outline:none;
 background:transparent;
