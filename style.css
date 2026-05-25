@@ -726,3 +726,31 @@ background:#111;
 color:white;
 border-color:#111;
 }
+
+/* ===================== */
+/* COLOR SELECTOR */
+/* ===================== */
+
+.color-selector{
+display:flex;
+gap:14px;
+margin-bottom:24px;
+}
+
+/* BUTTON */
+
+.color-btn{
+width:42px;
+height:42px;
+border-radius:50%;
+cursor:pointer;
+border:3px solid transparent;
+transition:.3s;
+}
+
+/* ACTIVE */
+
+.color-btn.active{
+transform:scale(1.15);
+border-color:#111;
+}
