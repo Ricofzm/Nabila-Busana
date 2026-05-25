@@ -97,6 +97,9 @@ wishlist.forEach(item=>{
 container.innerHTML += `
 
 <div class="wishlist-item">
+<div class="wishlist-heart">
+♥
+</div>
 
 <img src="${item.image}">
 
