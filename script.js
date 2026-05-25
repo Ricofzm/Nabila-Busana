@@ -529,6 +529,8 @@ document
 
 let selectedProduct = null;
 let selectedSize = "S";
+let selectedColor = "Black";
+let selectedFitImage = "";
 
 /* OPEN MODAL */
 
@@ -539,6 +541,8 @@ thumbnail,
 fitImage,
 type
 ){
+
+selectedFitImage = fitImage;
 
 selectedProduct = {
 name,
@@ -659,5 +663,51 @@ btn.classList.remove("active");
 /* ACTIVE */
 
 element.classList.add("active");
+
+}
+
+/* SELECT COLOR */
+
+function selectColor(
+element,
+color,
+fitImage
+){
+
+selectedColor = color;
+
+selectedFitImage = fitImage;
+
+/* ACTIVE */
+
+document
+.querySelectorAll(".color-btn")
+.forEach(btn=>{
+
+btn.classList.remove("active");
+
+});
+
+element.classList.add("active");
+
+/* LIVE FITTING */
+
+if(selectedProduct.type === "top"){
+
+changeTop(fitImage);
+
+}
+
+if(selectedProduct.type === "pants"){
+
+changePants(fitImage);
+
+}
+
+if(selectedProduct.type === "shoes"){
+
+changeShoes(fitImage);
+
+}
 
 }
