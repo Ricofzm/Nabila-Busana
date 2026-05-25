@@ -210,7 +210,10 @@ item.className =
 
 /* DATA */
 
-item.dataset.name = name;
+item.dataset.name =
+name + "-" +
+selectedSize + "-" +
+selectedColor;
 
 item.innerHTML = `
 
@@ -392,7 +395,6 @@ saveCart();
 /* DELETE */
 
 item.remove();
-saveCart();
 
 }
 
