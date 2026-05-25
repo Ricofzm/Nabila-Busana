@@ -300,7 +300,9 @@ IDR 0
 
 </div>
 
-<button class="checkout-btn">
+<button
+class="checkout-btn"
+onclick="openCheckout()">
 CHECKOUT
 </button>
 
@@ -443,5 +445,118 @@ ADD TO CART
 https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js
 "></script>
 <script src="script.js"></script>
+
+<!-- CHECKOUT MODAL -->
+
+<div
+class="checkout-modal"
+id="checkoutModal">
+
+<div class="checkout-box">
+
+<!-- CLOSE -->
+
+<button
+class="close-modal"
+onclick="closeCheckout()">
+✕
+</button>
+
+<h2>
+Checkout
+</h2>
+
+<!-- FORM -->
+
+<div class="checkout-form">
+
+<input
+type="text"
+placeholder="Full Name"
+>
+
+<input
+type="text"
+placeholder="Phone Number"
+>
+
+<textarea
+placeholder="Shipping Address">
+</textarea>
+
+<select>
+
+<option>
+Payment Method
+</option>
+
+<option>
+Bank Transfer
+</option>
+
+<option>
+E-Wallet
+</option>
+
+<option>
+COD
+</option>
+
+</select>
+
+</div>
+
+<!-- ORDER -->
+
+<div class="checkout-summary">
+
+<div class="summary-line">
+
+<span>
+Subtotal
+</span>
+
+<span id="checkoutSubtotal">
+IDR 0
+</span>
+
+</div>
+
+<div class="summary-line">
+
+<span>
+Shipping
+</span>
+
+<span>
+IDR 20.000
+</span>
+
+</div>
+
+<div class="summary-line total">
+
+<span>
+Total
+</span>
+
+<span id="checkoutTotal">
+IDR 0
+</span>
+
+</div>
+
+</div>
+
+<button
+class="place-order-btn"
+onclick="placeOrder()">
+PLACE ORDER
+</button>
+
+</div>
+
+</div>
+
 </body>
 </html>
