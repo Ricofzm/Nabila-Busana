@@ -430,13 +430,11 @@ return;
 
 }
 
-/* ADD QTY */
+/* ADD */
 
 qty++;
 
 qtyText.innerText = qty;
-
-/* TOTAL */
 
 total += price;
 
@@ -580,7 +578,7 @@ item.querySelector(".qty");
 let qty =
 parseInt(qtyText.innerText);
 
-/* GET PRODUCT NAME */
+/* PRODUCT NAME */
 
 const productData =
 item.dataset.name.split("-");
@@ -588,7 +586,7 @@ item.dataset.name.split("-");
 const productName =
 productData[0];
 
-/* STOCK */
+/* ORIGINAL STOCK */
 
 const stock =
 stocks[productName];
@@ -600,7 +598,6 @@ if(priceChange < 0){
 if(qty > 1){
 
 qty--;
-
 total += priceChange;
 
 }
@@ -610,8 +607,6 @@ total += priceChange;
 /* PLUS */
 
 else{
-
-/* LIMIT STOCK */
 
 if(qty >= stock){
 
@@ -624,7 +619,6 @@ return;
 }
 
 qty++;
-
 total += priceChange;
 
 }
@@ -901,6 +895,38 @@ document.getElementById(
 
 `Stock: ${stocks[name]}`;
 
+/* CURRENT QTY IN CART */
+
+let currentQty = 0;
+
+document
+.querySelectorAll(".cart-item")
+.forEach(item=>{
+
+const productName =
+item.dataset.name.split("-")[0];
+
+if(productName === name){
+
+currentQty += parseInt(
+item.querySelector(".qty").innerText
+);
+
+}
+
+});
+
+/* REMAINING STOCK */
+
+const remaining =
+stocks[name] - currentQty;
+
+document.getElementById(
+"modalStock"
+).innerText =
+
+`Stock: ${remaining}`;
+
 }
 
 /* CLOSE */
@@ -934,17 +960,6 @@ return;
 
 }
 
-/* REDUCE STOCK */
-
-stocks[selectedProduct.name]--;
-
-/* UPDATE STOCK UI */
-
-document.getElementById(
-"modalStock"
-).innerText =
-
-`Stock: ${stocks[selectedProduct.name]}`;
 
 /* CART */
 
