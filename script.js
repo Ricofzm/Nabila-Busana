@@ -1238,6 +1238,17 @@ document.getElementById(
 
 function closeCheckout(){
 
+const confirmClose =
+confirm(
+"Cancel checkout?"
+);
+
+if(!confirmClose){
+
+return;
+
+}
+
 document
 .getElementById(
 "checkoutModal"
@@ -1250,6 +1261,38 @@ document
 /* PLACE ORDER */
 
 function placeOrder(){
+
+const inputs =
+document.querySelectorAll(
+".checkout-form input, .checkout-form textarea"
+);
+
+const fullName =
+inputs[0].value.trim();
+
+const phone =
+inputs[1].value.trim();
+
+const address =
+inputs[2].value.trim();
+
+/* VALIDATION */
+
+if(
+fullName === "" ||
+phone === "" ||
+address === ""
+){
+
+alert(
+"Please complete all checkout data!"
+);
+
+return;
+
+}
+
+/* SUCCESS */
 
 alert(
 "Order placed successfully!"
@@ -1264,7 +1307,6 @@ document.getElementById(
 total = 0;
 
 updateTotal();
-
 saveCart();
 
 /* CLOSE */
