@@ -948,18 +948,36 @@ function addModalToCart(){
 
 if(!selectedProduct) return;
 
-/* STOCK CHECK */
+/* CURRENT QTY */
 
-if(
-stocks[selectedProduct.name] <= 0
-){
+let currentQty = 0;
+
+document
+.querySelectorAll(".cart-item")
+.forEach(item=>{
+
+const productName =
+item.dataset.name.split("-")[0];
+
+if(productName === selectedProduct.name){
+
+currentQty += parseInt(
+item.querySelector(".qty").innerText
+);
+
+}
+
+});
+
+/* LIMIT */
+
+if(currentQty >= stocks[selectedProduct.name]){
 
 alert("Stock habis");
 
 return;
 
 }
-
 
 /* CART */
 
@@ -994,7 +1012,6 @@ changeShoes(selectedFitImage);
 closeModal();
 
 }
-
 /* SELECT SIZE */
 
 function selectSize(
