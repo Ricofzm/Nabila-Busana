@@ -408,6 +408,16 @@ name + "-" + selectedSize + "-" + selectedColor
 
 );
 
+/* IF EXIST */
+
+if(existingItem){
+
+const qtyText =
+existingItem.querySelector(".qty");
+
+let qty =
+parseInt(qtyText.innerText);
+
 /* STOCK LIMIT */
 
 if(qty >= stocks[name]){
@@ -419,6 +429,8 @@ alert(
 return;
 
 }
+
+/* ADD QTY */
 
 qty++;
 
@@ -463,6 +475,7 @@ ${name}
 <p>
 Size: ${selectedSize}
 </p>
+
 <p>
 Color: ${selectedColor}
 </p>
