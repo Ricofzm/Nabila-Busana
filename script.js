@@ -672,18 +672,27 @@ button.closest(".cart-item");
 
 const qty =
 parseInt(
-
-item.querySelector(".qty")
-.innerText
-
+item.querySelector(".qty").innerText
 );
 
-/* REMOVE TOTAL */
+/* REMOVE ITEM FIRST */
+
+item.remove();
+
+/* TOTAL */
 
 total -= price * qty;
 
+if(total < 0){
+
+total = 0;
+
+}
+
 updateTotal();
 saveCart();
+
+}
 
 /* DELETE */
 
@@ -1149,13 +1158,14 @@ localStorage.getItem(
 "voguefit-total"
 );
 
-/* LOAD HTML */
+/* LOAD CART */
 
 if(savedCart){
 
 document.getElementById(
 "cartItems"
-).innerHTML = savedCart;
+).innerHTML =
+savedCart;
 
 }
 
@@ -1163,13 +1173,19 @@ document.getElementById(
 
 if(savedTotal){
 
-total =
-parseInt(savedTotal);
+total = Number(savedTotal);
 
-updateTotal();
-saveCart();
+if(isNaN(total)){
+
+total = 0;
 
 }
+
+}
+
+/* UPDATE */
+
+updateTotal();
 
 }
 
