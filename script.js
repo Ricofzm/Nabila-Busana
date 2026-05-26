@@ -694,12 +694,6 @@ saveCart();
 
 }
 
-/* DELETE */
-
-item.remove();
-
-}
-
 /* RESET OUTFIT */
 
 function resetOutfit(){
