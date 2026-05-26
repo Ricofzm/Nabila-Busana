@@ -1,6 +1,7 @@
 /* ===================== */
 /* WISHLIST SYSTEM */
 /* ===================== */
+localStorage.clear();
 
 let wishlist = [];
 
