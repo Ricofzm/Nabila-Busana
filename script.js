@@ -396,6 +396,39 @@ document.getElementById(
 "cartItems"
 );
 
+/* TOTAL QTY PRODUCT */
+
+let totalQty = 0;
+
+document
+.querySelectorAll(".cart-item")
+.forEach(item=>{
+
+const productName =
+item.dataset.name.split("-")[0];
+
+if(productName === name){
+
+totalQty += parseInt(
+item.querySelector(".qty").innerText
+);
+
+}
+
+});
+
+/* LIMIT STOCK */
+
+if(totalQty >= stocks[name]){
+
+alert(
+`Stock ${name} habis`
+);
+
+return;
+
+}
+
 /* CHECK EXISTING */
 
 const existingItem =
@@ -408,7 +441,7 @@ name + "-" + selectedSize + "-" + selectedColor
 
 );
 
-/* IF EXIST */
+/* EXIST */
 
 if(existingItem){
 
@@ -417,20 +450,6 @@ existingItem.querySelector(".qty");
 
 let qty =
 parseInt(qtyText.innerText);
-
-/* STOCK LIMIT */
-
-if(qty >= stocks[name]){
-
-alert(
-`Stock ${name} hanya ${stocks[name]}`
-);
-
-return;
-
-}
-
-/* ADD */
 
 qty++;
 
@@ -445,15 +464,13 @@ return;
 
 }
 
-/* CREATE ITEM */
+/* CREATE */
 
 const item =
 document.createElement("div");
 
 item.className =
 "cart-item";
-
-/* DATA */
 
 item.dataset.name =
 name + "-" +
@@ -466,21 +483,13 @@ item.innerHTML = `
 
 <div class="cart-info">
 
-<h4>
-${name}
-</h4>
+<h4>${name}</h4>
 
-<p>
-Size: ${selectedSize}
-</p>
+<p>Size: ${selectedSize}</p>
 
-<p>
-Color: ${selectedColor}
-</p>
+<p>Color: ${selectedColor}</p>
 
-<p>
-IDR ${price.toLocaleString()}
-</p>
+<p>IDR ${price.toLocaleString()}</p>
 
 <div class="qty-controls">
 
@@ -520,11 +529,7 @@ Remove
 
 `;
 
-/* APPEND */
-
 cart.appendChild(item);
-
-/* TOTAL */
 
 total += price;
 
@@ -608,10 +613,31 @@ total += priceChange;
 
 else{
 
-if(qty >= stock){
+let totalQty = 0;
+
+document
+.querySelectorAll(".cart-item")
+.forEach(cartItem=>{
+
+const itemName =
+cartItem.dataset.name.split("-")[0];
+
+if(itemName === productName){
+
+totalQty += parseInt(
+cartItem.querySelector(".qty").innerText
+);
+
+}
+
+});
+
+/* LIMIT */
+
+if(totalQty >= stock){
 
 alert(
-`Stock ${productName} hanya ${stock}`
+`Stock ${productName} habis`
 );
 
 return;
