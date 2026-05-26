@@ -408,15 +408,17 @@ name + "-" + selectedSize + "-" + selectedColor
 
 );
 
-/* IF EXIST */
+/* STOCK LIMIT */
 
-if(existingItem){
+if(qty >= stocks[name]){
 
-const qtyText =
-existingItem.querySelector(".qty");
+alert(
+`Stock ${name} hanya ${stocks[name]}`
+);
 
-let qty =
-parseInt(qtyText.innerText);
+return;
+
+}
 
 qty++;
 
@@ -556,14 +558,27 @@ button,
 priceChange
 ){
 
-const controls =
-button.parentElement;
+const item =
+button.closest(".cart-item");
 
 const qtyText =
-controls.querySelector(".qty");
+item.querySelector(".qty");
 
 let qty =
 parseInt(qtyText.innerText);
+
+/* GET PRODUCT NAME */
+
+const productData =
+item.dataset.name.split("-");
+
+const productName =
+productData[0];
+
+/* STOCK */
+
+const stock =
+stocks[productName];
 
 /* MINUS */
 
@@ -582,6 +597,18 @@ total += priceChange;
 /* PLUS */
 
 else{
+
+/* LIMIT STOCK */
+
+if(qty >= stock){
+
+alert(
+`Stock ${productName} hanya ${stock}`
+);
+
+return;
+
+}
 
 qty++;
 
