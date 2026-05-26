@@ -583,15 +583,13 @@ item.querySelector(".qty");
 let qty =
 parseInt(qtyText.innerText);
 
-/* PRODUCT NAME */
+/* PRODUCT */
 
 const productData =
 item.dataset.name.split("-");
 
 const productName =
 productData[0];
-
-/* ORIGINAL STOCK */
 
 const stock =
 stocks[productName];
@@ -600,12 +598,15 @@ stocks[productName];
 
 if(priceChange < 0){
 
-if(qty > 1){
+if(qty <= 1){
 
-qty--;
-total += priceChange;
+return;
 
 }
+
+qty--;
+
+total -= Math.abs(priceChange);
 
 }
 
@@ -632,8 +633,6 @@ cartItem.querySelector(".qty").innerText
 
 });
 
-/* LIMIT */
-
 if(totalQty >= stock){
 
 alert(
@@ -645,6 +644,7 @@ return;
 }
 
 qty++;
+
 total += priceChange;
 
 }
