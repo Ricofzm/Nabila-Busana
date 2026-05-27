@@ -1420,7 +1420,10 @@ if(type === "female"){
 base.src =
 "assets/mannequin.PNG";
 
+/* HIDE HIJAB */
+
 hijab.src = "";
+hijab.style.display = "none";
 
 }
 
@@ -1430,6 +1433,10 @@ if(type === "hijab"){
 
 base.src =
 "assets/mannequin.PNG";
+
+/* SHOW HIJAB */
+
+hijab.style.display = "block";
 
 hijab.src =
 "assets/hijab.PNG";
