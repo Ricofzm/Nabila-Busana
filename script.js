@@ -31,6 +31,40 @@ type:"shoes"
 ];
 
 /* ===================== */
+/* ADD PRODUCT */
+/* ===================== */
+
+products.push({
+
+name:"Kaos",
+price:199000,
+thumb:"assets/kaos1.PNG",
+fit:"assets/tbkaos1.PNG",
+type:"top"
+
+});
+
+products.push({
+
+name:"Cargo",
+price:279000,
+thumb:"assets/cargo1.PNG",
+fit:"assets/tbcargo1.PNG",
+type:"pants"
+
+});
+
+products.push({
+
+name:"Sport Shoes",
+price:399000,
+thumb:"assets/sepatu1.PNG",
+fit:"assets/tbsepatu1.PNG",
+type:"shoes"
+
+});
+
+/* ===================== */
 /* AUTO RENDER PRODUCTS */
 /* ===================== */
 
