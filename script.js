@@ -23,8 +23,8 @@ type:"pants"
 {
 name:"Sneakers White",
 price:399000,
-thumb:"assets/tbshoes.png",
-fit:"assets/shoes-white.png",
+thumb:"assets/tbshoes.PNG",
+fit:"assets/shoes-white.PNG",
 type:"shoes"
 }
 
@@ -58,8 +58,8 @@ products.push({
 
 name:"Sport Shoes",
 price:399000,
-thumb:"assets/tbsepatu1.PNG",
-fit:"assets/sepatu1.PNG",
+thumb:"assets/tbsepatu1.png",
+fit:"assets/sepatu1.png",
 type:"shoes"
 
 });
