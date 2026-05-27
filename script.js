@@ -1,4 +1,150 @@
 /* ===================== */
+/* PRODUCTS */
+/* ===================== */
+
+let products = [
+
+{
+name:"Black Hoodie",
+price:299000,
+thumb:"assets/tbhoodie.PNG",
+fit:"assets/hoodie-black.PNG",
+type:"top"
+},
+
+{
+name:"Cargo Pants",
+price:259000,
+thumb:"assets/pants-beige.PNG",
+fit:"assets/pants-beige.PNG",
+type:"pants"
+},
+
+{
+name:"Sneakers White",
+price:399000,
+thumb:"assets/tbshoes.PNG",
+fit:"assets/shoes-white.PNG",
+type:"shoes"
+}
+
+];
+
+/* ===================== */
+/* AUTO RENDER PRODUCTS */
+/* ===================== */
+
+function renderProducts(){
+
+const tops =
+document.getElementById("tops");
+
+const pants =
+document.getElementById("pants");
+
+const shoes =
+document.getElementById("shoes");
+
+/* RESET */
+
+tops.innerHTML = "";
+pants.innerHTML = "";
+shoes.innerHTML = "";
+
+/* LOOP */
+
+products.forEach(product=>{
+
+const card =
+document.createElement("div");
+
+card.className =
+"product-card";
+
+card.dataset.name =
+product.name;
+
+/* CLICK */
+
+card.onclick = ()=>{
+
+/* AUTO TRY ON */
+
+if(product.type === "top"){
+
+changeTop(product.fit);
+
+}
+
+if(product.type === "pants"){
+
+changePants(product.fit);
+
+}
+
+if(product.type === "shoes"){
+
+changeShoes(product.fit);
+
+}
+
+/* OPEN MODAL */
+
+openModal(
+product.name,
+product.price,
+product.thumb,
+product.fit,
+product.type
+);
+
+};
+
+/* HTML */
+
+card.innerHTML = `
+
+<img src="${product.thumb}">
+
+<div class="product-name">
+${product.name}
+</div>
+
+<div class="product-price">
+IDR ${product.price.toLocaleString()}
+</div>
+
+`;
+
+/* CATEGORY */
+
+if(product.type === "top"){
+
+tops.appendChild(card);
+
+}
+
+if(product.type === "pants"){
+
+pants.appendChild(card);
+
+}
+
+if(product.type === "shoes"){
+
+shoes.appendChild(card);
+
+}
+
+});
+
+}
+
+/* AUTO LOAD */
+
+renderProducts();
+
+/* ===================== */
 /* WISHLIST SYSTEM */
 /* ===================== */
 
