@@ -1,65 +1,3 @@
-let mannequinType = "female";
-
-function changeMannequin(
-type,
-button
-){
-
-mannequinType = type;
-
-const base =
-document.getElementById(
-"baseModel"
-);
-
-const hijab =
-document.getElementById(
-"hijabLayer"
-);
-
-/* ACTIVE BUTTON */
-
-document
-.querySelectorAll(
-".mannequin-btn"
-)
-.forEach(btn=>{
-
-btn.classList.remove(
-"active"
-);
-
-});
-
-button.classList.add(
-"active"
-);
-
-/* FEMALE */
-
-if(type === "female"){
-
-base.src =
-"assets/mannequin/female.png";
-
-hijab.src = "";
-
-}
-
-/* HIJAB */
-
-if(type === "hijab"){
-
-base.src =
-"assets/mannequin/female-hijab.png";
-
-hijab.src =
-"assets/hijab/default.png";
-
-}
-
-}
-
 /* ===================== */
 /* WISHLIST SYSTEM */
 /* ===================== */
@@ -1433,5 +1371,67 @@ btn.innerText =
 /* UPDATE */
 
 renderWishlist();
+
+}
+
+/* ===================== */
+/* MANNEQUIN SWITCH */
+/* ===================== */
+
+function changeMannequin(
+type,
+button
+){
+
+const base =
+document.getElementById(
+"baseModel"
+);
+
+const hijab =
+document.getElementById(
+"hijabLayer"
+);
+
+/* REMOVE ACTIVE */
+
+document
+.querySelectorAll(".mannequin-btn")
+.forEach(btn=>{
+
+btn.classList.remove(
+"active"
+);
+
+});
+
+/* ACTIVE */
+
+button.classList.add(
+"active"
+);
+
+/* FEMALE */
+
+if(type === "female"){
+
+base.src =
+"assets/mannequin.png";
+
+hijab.src = "";
+
+}
+
+/* HIJAB */
+
+if(type === "hijab"){
+
+base.src =
+"assets/mannequin.PNG";
+
+hijab.src =
+"assets/hijab.PNG";
+
+}
 
 }
