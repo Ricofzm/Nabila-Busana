@@ -355,8 +355,10 @@ updateTransform();
 
 function saveOutfit(){
 
-const model = document
-.querySelector(".viewer");
+const model =
+document.getElementById(
+"viewerModel"
+);
 
 html2canvas(model,{
 backgroundColor:null
