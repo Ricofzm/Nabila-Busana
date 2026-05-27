@@ -1420,10 +1420,14 @@ if(type === "female"){
 base.src =
 "assets/mannequin.PNG";
 
-/* HIDE HIJAB */
+/* RESET HIJAB */
 
-hijab.src = "";
-hijab.style.display = "none";
+hijab.style.display =
+"none";
+
+hijab.removeAttribute(
+"src"
+);
 
 }
 
@@ -1434,9 +1438,10 @@ if(type === "hijab"){
 base.src =
 "assets/mannequin.PNG";
 
-/* SHOW HIJAB */
+/* SHOW */
 
-hijab.style.display = "block";
+hijab.style.display =
+"block";
 
 hijab.src =
 "assets/hijab.PNG";
