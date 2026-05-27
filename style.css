@@ -116,36 +116,6 @@ outline:none;
 background:transparent;
 }
 
-/* CIRCLE BG */
-
-.viewer::before{
-content:'';
-position:absolute;
-width:700px;
-height:700px;
-border-radius:50%;
-background:radial-gradient(circle,#f8f8f8,#e8e8e8);
-overflow:hidden;
-border:none;
-outline:none;
-}
-
-/* MANNEQUIN */
-
-.mannequin-area{
-position:relative;
-width:420px;
-height:760px;
-z-index:2;
-transition:.4s;
-
-/* TAMBAH INI */
-border:none;
-outline:none;
-box-shadow:none;
-background:transparent;
-}
-
 /* LAYER */
 
 .layer{
@@ -156,24 +126,6 @@ width:100%;
 height:100%;
 object-fit:contain;
 pointer-events:none;
-}
-
-/* ORDER */
-
-.body{
-z-index:1;
-}
-
-.pants{
-z-index:2;
-}
-
-.top{
-z-index:3;
-}
-
-.shoes{
-z-index:4;
 }
 
 /* RESPONSIVE */
@@ -208,14 +160,6 @@ border-radius:24px;
 width:100%;
 min-height:650px;
 margin-top:0;
-}
-
-/* MANNEQUIN */
-
-.mannequin-area{
-width:280px;
-height:520px;
-margin:auto;
 }
 
 /* CART */
@@ -381,24 +325,6 @@ border-radius:24px;
 border:none;
 }
 
-/* VIEWER */
-
-.viewer{
-width:100%;
-min-height:auto;
-padding-top:20px;
-padding-bottom:20px;
-overflow:hidden;
-}
-
-/* MANNEQUIN */
-
-.mannequin-area{
-width:280px;
-height:520px;
-margin:auto;
-}
-
 /* BG */
 
 .viewer::before{
@@ -521,11 +447,6 @@ padding:0;
 color:red;
 }
 
-/* MOBILE TOUCH */
-
-.mannequin-area{
-touch-action:none;
-}
 
 /* ===================== */
 /* FLOATING MENU */
@@ -1204,4 +1125,99 @@ z-index:4;
 
 #shoesLayer{
 z-index:5;
+}
+
+/* ===================== */
+/* VIEWER FIX */
+/* ===================== */
+
+.viewer{
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:760px;
+overflow:hidden;
+}
+
+/* BG CIRCLE */
+
+.viewer::before{
+content:'';
+position:absolute;
+width:700px;
+height:700px;
+border-radius:50%;
+background:
+radial-gradient(
+circle,
+#f8f8f8,
+#e8e8e8
+);
+z-index:0;
+}
+
+/* WRAPPER */
+
+.viewer-wrapper{
+position:relative;
+z-index:2;
+}
+
+/* MANNEQUIN */
+
+#viewerModel{
+position:relative;
+width:340px;
+height:680px;
+transition:.3s;
+transform-origin:center;
+}
+
+/* ALL LAYER */
+
+#viewerModel .layer{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:contain;
+pointer-events:none;
+}
+
+/* ORDER */
+
+.base{
+z-index:1;
+}
+
+#hijabLayer{
+z-index:2;
+}
+
+#pantsLayer{
+z-index:3;
+}
+
+#topLayer{
+z-index:4;
+}
+
+#shoesLayer{
+z-index:5;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+#viewerModel{
+width:280px;
+height:560px;
+}
+
+.viewer{
+min-height:600px;
+}
+
 }
