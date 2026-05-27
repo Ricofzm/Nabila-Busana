@@ -1,3 +1,65 @@
+let mannequinType = "female";
+
+function changeMannequin(
+type,
+button
+){
+
+mannequinType = type;
+
+const base =
+document.getElementById(
+"baseModel"
+);
+
+const hijab =
+document.getElementById(
+"hijabLayer"
+);
+
+/* ACTIVE BUTTON */
+
+document
+.querySelectorAll(
+".mannequin-btn"
+)
+.forEach(btn=>{
+
+btn.classList.remove(
+"active"
+);
+
+});
+
+button.classList.add(
+"active"
+);
+
+/* FEMALE */
+
+if(type === "female"){
+
+base.src =
+"assets/mannequin/female.png";
+
+hijab.src = "";
+
+}
+
+/* HIJAB */
+
+if(type === "hijab"){
+
+base.src =
+"assets/mannequin/female-hijab.png";
+
+hijab.src =
+"assets/hijab/default.png";
+
+}
+
+}
+
 /* ===================== */
 /* WISHLIST SYSTEM */
 /* ===================== */
