@@ -38,7 +38,7 @@ products.push({
 
 name:"Kaos",
 price:199000,
-thumb:"assets/tbkaos1.PNG",
+thumb:"assets/tbkaos1.png",
 fit:"assets/kaos1.png",
 type:"top"
 
