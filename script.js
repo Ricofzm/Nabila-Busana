@@ -24,7 +24,7 @@ type:"pants"
 name:"Sneakers White",
 price:399000,
 thumb:"assets/tbshoes.PNG",
-fit:"assets/shoes-white.PNG",
+fit:"assets/shoes-white.png",
 type:"shoes"
 }
 
