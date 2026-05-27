@@ -1416,7 +1416,7 @@ button.classList.add(
 if(type === "female"){
 
 base.src =
-"assets/mannequin.png";
+"assets/mannequin.PNG";
 
 hijab.src = "";
 
