@@ -255,6 +255,75 @@ onclick="resetOutfit()">
 
 </div>
 
+<div class="viewer-wrapper">
+
+<!-- SWITCH -->
+
+<div class="mannequin-switch">
+
+<button
+class="mannequin-btn active"
+onclick="
+changeMannequin(
+'female',
+this
+)">
+👩
+</button>
+
+<button
+class="mannequin-btn"
+onclick="
+changeMannequin(
+'hijab',
+this
+)">
+🧕
+</button>
+
+</div>
+
+<!-- VIEWER -->
+
+<div
+class="viewer"
+id="viewerModel"
+>
+
+<img
+id="baseModel"
+class="layer base"
+src="assets/mannequin/female.png"
+>
+
+<img
+id="hijabLayer"
+class="layer"
+src=""
+>
+
+<img
+id="topLayer"
+class="layer"
+src=""
+>
+
+<img
+id="pantsLayer"
+class="layer"
+src=""
+>
+
+<img
+id="shoesLayer"
+class="layer"
+src=""
+>
+
+</div>
+
+</div>
+
 <div
 class="mannequin-area"
 id="viewerModel">
