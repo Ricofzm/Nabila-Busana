@@ -271,10 +271,6 @@ overflow:auto;
 padding:0 20px;
 }
 
-.logo{
-font-size:22px;
-}
-
 /* MAIN */
 
 .main{
@@ -1204,9 +1200,33 @@ align-items:center;
 }
 
 .logo-img{
-height:42px;
+height:52px;
 width:auto;
+
 object-fit:contain;
+
+filter:
+drop-shadow(
+0 10px 25px rgba(0,0,0,.18)
+);
+
+transition:.3s;
+cursor:pointer;
+}
+
+/* HOVER */
+
+.logo-img:hover{
+
+transform:
+translateY(-2px)
+scale(1.03);
+
+filter:
+drop-shadow(
+0 14px 30px rgba(0,0,0,.22)
+);
+
 }
 
 @media(max-width:768px){
