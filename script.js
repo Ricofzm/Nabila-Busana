@@ -1,24 +1,25 @@
 const frames =
 document.querySelectorAll(".logo-frame");
 
-let currentFrame = 0;
+let current = 0;
+
+frames[0].classList.add("active");
 
 setInterval(()=>{
 
-frames.forEach(frame=>{
-frame.classList.remove("active");
-});
+frames[current]
+.classList.remove("active");
 
-currentFrame++;
+current++;
 
-if(currentFrame >= frames.length){
-currentFrame = 0;
+if(current >= frames.length){
+current = 0;
 }
 
-frames[currentFrame]
+frames[current]
 .classList.add("active");
 
-},60);
+},180);
 
 /* ===================== */
 /* PRODUCTS */
