@@ -1300,6 +1300,7 @@ height:60px;
 overflow:hidden;
 display:flex;
 align-items:center;
+isolation:isolate;
 }
 
 .logo-frame{
@@ -1327,6 +1328,10 @@ transform;
 /* ACTIVE */
 
 .logo-frame.active{
+
+filter:
+blur(0)
+drop-shadow(0 0 12px rgba(255,215,120,.45));
 
 opacity:1;
 
