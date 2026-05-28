@@ -1174,3 +1174,26 @@ height:560px;
 }
 
 }
+
+.mannequin-btn{
+width:50px;
+height:50px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border:none;
+border-radius:50%;
+
+background:white;
+color:#111;
+
+cursor:pointer;
+
+transition:.25s;
+}
+
+.mannequin-btn svg{
+pointer-events:none;
+}
