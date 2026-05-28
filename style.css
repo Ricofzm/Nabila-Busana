@@ -1303,16 +1303,12 @@ align-items:center;
 }
 
 .logo-frame{
-position:absolute;
-width:100%;
-height:100%;
-object-fit:contain;
-
 opacity:0;
-
-transition:.08s linear;
+transition:.25s ease;
+transform:scale(.98);
 }
 
 .logo-frame.active{
 opacity:1;
+transform:scale(1);
 }
