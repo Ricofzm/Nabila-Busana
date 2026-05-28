@@ -18,7 +18,7 @@ currentFrame = 0;
 frames[currentFrame]
 .classList.add("active");
 
-},120);
+},60);
 
 /* ===================== */
 /* PRODUCTS */
