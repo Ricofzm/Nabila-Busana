@@ -1055,15 +1055,19 @@ background:transparent;
 .viewer-section::before{
 content:'';
 position:absolute;
-width:700px;
-height:700px;
+
+width:520px;
+height:520px;
+
 border-radius:50%;
+
 background:
 radial-gradient(
 circle,
-#f8f8f8,
-#e8e8e8
+#f7f7f7,
+#ececec
 );
+
 z-index:0;
 }
 
