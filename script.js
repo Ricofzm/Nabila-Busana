@@ -1624,7 +1624,7 @@ hijab.style.display =
 "block";
 
 hijab.src =
-"assets/hijab.PNG";
+"assets/hijab.png";
 
 }
 
