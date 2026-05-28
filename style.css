@@ -1328,7 +1328,3 @@ overflow:visible;
 #viewerModel{
 overflow:visible;
 }
-
-#viewerModel img{
-mix-blend-mode:multiply;
-}
