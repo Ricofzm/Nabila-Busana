@@ -19,7 +19,7 @@ current = 0;
 frames[current]
 .classList.add("active");
 
-},450);
+},600);
 
 /* ===================== */
 /* PRODUCTS */
