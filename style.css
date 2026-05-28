@@ -1196,18 +1196,13 @@ transition:.25s;
 pointer-events:none;
 }
 
-.logo{
-height:90px;
-overflow:hidden;
-display:flex;
-align-items:center;
-}
-
 .logo-img{
-height:140px;
+height:90px;
 width:auto;
 
-object-fit:cover;
+object-fit:contain;
+
+transform:scale(1.8);
 
 filter:
 drop-shadow(
