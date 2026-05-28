@@ -15,7 +15,7 @@ type:"top"
 {
 name:"Cargo Pants",
 price:259000,
-thumb:"assets/pants-beige.PNG",
+thumb:"assets/tbpantsbeige.png",
 fit:"assets/pants-beige.PNG",
 type:"pants"
 },
