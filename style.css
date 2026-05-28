@@ -1197,3 +1197,22 @@ transition:.25s;
 .mannequin-btn svg{
 pointer-events:none;
 }
+
+.logo{
+display:flex;
+align-items:center;
+}
+
+.logo-img{
+height:42px;
+width:auto;
+object-fit:contain;
+}
+
+@media(max-width:768px){
+
+.logo-img{
+height:34px;
+}
+
+}
