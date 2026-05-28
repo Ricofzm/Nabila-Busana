@@ -1196,43 +1196,87 @@ transition:.25s;
 pointer-events:none;
 }
 
+/* ===================== */
+/* LOGO MARQUEE */
+/* ===================== */
+
+.logo-marquee{
+
+width:420px;
+overflow:hidden;
+
+position:relative;
+
+mask-image:
+linear-gradient(
+to right,
+transparent,
+black 15%,
+black 85%,
+transparent
+);
+
+}
+
+/* TRACK */
+
+.logo-track{
+
+display:flex;
+align-items:center;
+gap:90px;
+
+width:max-content;
+
+animation:
+logoRun 18s linear infinite;
+
+}
+
+/* LOGO */
+
 .logo-img{
-height:90px;
+
+height:120px;
 width:auto;
 
 object-fit:contain;
-
-transform:scale(1.8);
 
 filter:
 drop-shadow(
 0 10px 25px rgba(0,0,0,.18)
 );
 
-transition:.3s;
-cursor:pointer;
 }
 
-/* HOVER */
+/* ANIMATION */
 
-.logo-img:hover{
+@keyframes logoRun{
 
-transform:
-translateY(-2px)
-scale(1.03);
+from{
+transform:translateX(0);
+}
 
-filter:
-drop-shadow(
-0 14px 30px rgba(0,0,0,.22)
-);
+to{
+transform:translateX(-33.33%);
+}
 
 }
+
+/* MOBILE */
 
 @media(max-width:768px){
 
+.logo-marquee{
+width:220px;
+}
+
 .logo-img{
-height:60px;
-transform:scale(1.5);
+height:70px;
+}
+
+.logo-track{
+gap:50px;
 }
 
 }
