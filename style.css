@@ -1035,51 +1035,6 @@ color:white;
 transform:scale(1.08);
 }
 
-/* MANNEQUIN */
-
-#viewerModel{
-position:relative;
-width:320px;
-height:620px;
-margin:auto;
-transition:.3s;
-}
-
-/* LAYER */
-
-#viewerModel .layer{
-position:absolute;
-inset:0;
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-pointer-events:none;
-}
-
-/* ORDER */
-
-.base{
-z-index:1;
-}
-
-#hijabLayer{
-z-index:2;
-}
-
-#pantsLayer{
-z-index:3;
-}
-
-#topLayer{
-z-index:4;
-}
-
-#shoesLayer{
-z-index:5;
-}
 
 /* ===================== */
 /* VIEWER FIX */
