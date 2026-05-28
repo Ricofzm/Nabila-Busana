@@ -1197,15 +1197,17 @@ pointer-events:none;
 }
 
 .logo{
+height:90px;
+overflow:hidden;
 display:flex;
 align-items:center;
 }
 
 .logo-img{
-height:52px;
+height:140px;
 width:auto;
 
-object-fit:contain;
+object-fit:cover;
 
 filter:
 drop-shadow(
