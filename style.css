@@ -1296,3 +1296,9 @@ background:#bdbdbd;
 button {
   cursor: pointer;
 }
+
+.logo-video {
+  width: 60px;   /* sesuaikan ukuran logo */
+  height: auto;
+  object-fit: contain;
+}
