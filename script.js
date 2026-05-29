@@ -49,7 +49,7 @@ products.push({
 name:"Kaos",
 price:199000,
 thumb:"assets/tbhoodiecream.PNG",
-fit:"assets/hoodiecream1.png",
+fit:"assets/hoodie-cream1.PNG",
 type:"top"
 
 });
