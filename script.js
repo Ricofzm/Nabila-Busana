@@ -1594,3 +1594,131 @@ hijab.src =
 }
 
 }
+
+let products = JSON.parse(localStorage.getItem("products")) || [];
+let editIndex = null;
+
+// DOM
+const productList = document.getElementById("productList");
+const modal = document.getElementById("productModal");
+
+const nameInput = document.getElementById("productName");
+const priceInput = document.getElementById("productPrice");
+const imageInput = document.getElementById("productImageFile");
+const preview = document.getElementById("imagePreview");
+
+const openBtn = document.getElementById("openModalBtn");
+const closeBtn = document.getElementById("closeModalBtn");
+const saveBtn = document.getElementById("saveProductBtn");
+
+// convert image to base64
+let imageBase64 = "";
+
+// OPEN MODAL
+openBtn.onclick = () => {
+  editIndex = null;
+  clearForm();
+  modal.classList.remove("hidden");
+};
+
+// CLOSE MODAL
+closeBtn.onclick = () => {
+  modal.classList.add("hidden");
+};
+
+// IMAGE PREVIEW + CONVERT
+imageInput.onchange = (e) => {
+  const file = e.target.files[0];
+
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = (event) => {
+    imageBase64 = event.target.result;
+
+    preview.src = imageBase64;
+    preview.style.display = "block";
+  };
+
+  reader.readAsDataURL(file);
+};
+
+// SAVE (CREATE / UPDATE)
+saveBtn.onclick = () => {
+  const product = {
+    name: nameInput.value,
+    price: Number(priceInput.value),
+    image: imageBase64
+  };
+
+  if (!product.name || !product.price || !product.image) {
+    alert("Lengkapi semua data!");
+    return;
+  }
+
+  if (editIndex === null) {
+    products.push(product);
+  } else {
+    products[editIndex] = product;
+  }
+
+  localStorage.setItem("products", JSON.stringify(products));
+
+  modal.classList.add("hidden");
+  renderProducts();
+};
+
+// DELETE
+function deleteProduct(index) {
+  products.splice(index, 1);
+  localStorage.setItem("products", JSON.stringify(products));
+  renderProducts();
+}
+
+// EDIT
+function editProduct(index) {
+  const p = products[index];
+
+  nameInput.value = p.name;
+  priceInput.value = p.price;
+
+  imageBase64 = p.image;
+  preview.src = p.image;
+  preview.style.display = "block";
+
+  editIndex = index;
+
+  modal.classList.remove("hidden");
+}
+
+// RENDER
+function renderProducts() {
+  productList.innerHTML = "";
+
+  products.forEach((p, index) => {
+    productList.innerHTML += `
+      <div class="card">
+        <img src="${p.image}" style="width:100px; border-radius:8px;">
+        <h3>${p.name}</h3>
+        <p>Rp ${p.price}</p>
+
+        <button onclick="editProduct(${index})">Edit</button>
+        <button onclick="deleteProduct(${index})">Delete</button>
+      </div>
+    `;
+  });
+}
+
+// CLEAR
+function clearForm() {
+  nameInput.value = "";
+  priceInput.value = "";
+  imageInput.value = "";
+  preview.src = "";
+  preview.style.display = "none";
+  imageBase64 = "";
+}
+
+// INIT
+renderProducts();
