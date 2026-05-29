@@ -1600,7 +1600,7 @@ let editIndex = null;
 
 // DOM
 const productList = document.getElementById("productList");
-const modal = document.getElementById("productModal");
+const modal = document.getElementById("crudProductModal");
 
 const nameInput = document.getElementById("productName");
 const priceInput = document.getElementById("productPrice");
@@ -1608,7 +1608,7 @@ const imageInput = document.getElementById("productImageFile");
 const preview = document.getElementById("imagePreview");
 
 const openBtn = document.getElementById("openModalBtn");
-const closeBtn = document.getElementById("closeModalBtn");
+const closeBtn = document.getElementById("closeProductModalBtn");
 const saveBtn = document.getElementById("saveProductBtn");
 
 // convert image to base64
