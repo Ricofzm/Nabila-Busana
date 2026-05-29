@@ -435,6 +435,12 @@ transition:.3s;
 transform:scale(1.08);
 }
 
+.main-fab svg{
+width:24px;
+height:24px;
+stroke:white;
+}
+
 /* MENU */
 
 .fab-menu{
