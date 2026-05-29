@@ -1,26 +1,3 @@
-const frames =
-document.querySelectorAll(".logo-frame");
-
-let current = 0;
-
-frames[0].classList.add("active");
-
-setInterval(()=>{
-
-frames[current]
-.classList.remove("active");
-
-current++;
-
-if(current >= frames.length){
-current = 0;
-}
-
-frames[current]
-.classList.add("active");
-
-},800);
-
 /* ===================== */
 /* PRODUCTS */
 /* ===================== */
