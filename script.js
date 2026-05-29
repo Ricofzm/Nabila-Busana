@@ -1595,28 +1595,68 @@ hijab.src =
 
 }
 
-document
-.getElementById("uploadClothes")
-.addEventListener("change", e=>{
+function addCustomProduct(){
 
-const file = e.target.files[0];
+const name =
+document.getElementById(
+"productName"
+).value;
 
-if(!file) return;
+const price =
+Number(
+document.getElementById(
+"productPrice"
+).value
+);
 
-const reader = new FileReader();
+const type =
+document.getElementById(
+"productType"
+).value;
 
-reader.onload = function(ev){
+const thumbFile =
+document.getElementById(
+"thumbUpload"
+).files[0];
+
+const fitFile =
+document.getElementById(
+"fitUpload"
+).files[0];
+
+if(
+!thumbFile ||
+!fitFile
+){
+alert(
+"Upload thumbnail dan fit image"
+);
+return;
+}
+
+const thumbReader =
+new FileReader();
+
+const fitReader =
+new FileReader();
+
+thumbReader.onload =
+function(e1){
+
+fitReader.onload =
+function(e2){
 
 products.push({
 
-name:"Custom Item",
-price:0,
+name:name,
 
-thumb:ev.target.result,
+price:price,
 
-fit:ev.target.result,
+thumb:e1.target.result,
 
-type:"top"
+fit:e2.target.result,
+
+type:type
 
 });
 
@@ -1624,6 +1664,14 @@ renderProducts();
 
 };
 
-reader.readAsDataURL(file);
+fitReader.readAsDataURL(
+fitFile
+);
 
-});
+};
+
+thumbReader.readAsDataURL(
+thumbFile
+);
+
+}
