@@ -523,64 +523,6 @@ updateTransform();
 
 }
 
-/* ROTATE LEFT */
-
-function rotateLeft(){
-
-rotate -= 10;
-
-updateTransform();
-
-}
-
-/* ROTATE RIGHT */
-
-function rotateRight(){
-
-rotate += 10;
-
-updateTransform();
-
-}
-
-/* RESET */
-
-function resetView(){
-
-scale = 1;
-rotate = 0;
-
-updateTransform();
-
-}
-
-/* SAVE OUTFIT */
-
-function saveOutfit(){
-
-const model =
-document.getElementById(
-"viewerModel"
-);
-
-html2canvas(model,{
-backgroundColor:null
-}).then(canvas=>{
-
-const link =
-document.createElement("a");
-
-link.download =
-"voguefit-outfit.png";
-
-link.href =
-canvas.toDataURL();
-
-link.click();
-
-});
-
-}
 
 /* ===================== */
 /* CART SYSTEM */
