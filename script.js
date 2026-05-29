@@ -1594,3 +1594,36 @@ hijab.src =
 }
 
 }
+
+document
+.getElementById("uploadClothes")
+.addEventListener("change", e=>{
+
+const file = e.target.files[0];
+
+if(!file) return;
+
+const reader = new FileReader();
+
+reader.onload = function(ev){
+
+products.push({
+
+name:"Custom Item",
+price:0,
+
+thumb:ev.target.result,
+
+fit:ev.target.result,
+
+type:"top"
+
+});
+
+renderProducts();
+
+};
+
+reader.readAsDataURL(file);
+
+});
