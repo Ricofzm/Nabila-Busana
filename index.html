@@ -113,10 +113,40 @@ style="display:none;">
 </div>
 
 <input
+type="text"
+id="productName"
+placeholder="Nama Produk">
+
+<input
+type="number"
+id="productPrice"
+placeholder="Harga Produk">
+
+<select id="productType">
+
+<option value="top">Top</option>
+<option value="pants">Pants</option>
+<option value="shoes">Shoes</option>
+
+</select>
+
+<label>Thumbnail</label>
+
+<input
 type="file"
-id="uploadClothes"
-accept="image/*"
->
+id="thumbUpload"
+accept="image/*">
+
+<label>Fit Image</label>
+
+<input
+type="file"
+id="fitUpload"
+accept="image/*">
+
+<button onclick="addCustomProduct()">
+Add Product
+</button>
 
 </div>
 
