@@ -46,7 +46,7 @@ type:"top"
 
 products.push({
 
-name:"Kaos",
+name:"Soft Hoodie Cream",
 price:199000,
 thumb:"assets/tbhoodiecream.PNG",
 fit:"assets/hoodie-cream1.PNG",
