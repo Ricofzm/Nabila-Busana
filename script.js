@@ -46,6 +46,16 @@ type:"top"
 
 products.push({
 
+name:"Kaos",
+price:199000,
+thumb:"assets/tbhoodiecream.PNG",
+fit:"assets/hoodiecream1.png",
+type:"top"
+
+});
+
+products.push({
+
 name:"Cargo",
 price:279000,
 thumb:"assets/tbcargo1.png",
