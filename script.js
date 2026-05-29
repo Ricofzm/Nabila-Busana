@@ -7,7 +7,7 @@ let products = [
 {
 name:"Black Hoodie",
 price:299000,
-thumb:"assets/tbhoodie.PNG",
+thumb:"assets/tbhoodieblack1.png",
 fit:"assets/hoodie-black.PNG",
 type:"top"
 },
