@@ -67,7 +67,7 @@ type:"pants"
 products.push({
 
 name:"Long Skirt",
-price:279000,
+price:319000,
 thumb:"assets/tbbottom1.png",
 fit:"assets/bottom-1.PNG",
 type:"pants"
